@@ -12,13 +12,13 @@ public class Customer {
 	private BigDecimal openBalance;
 	private Address address;
 	private DisbursementPreference disbursementPreference;
-	private Rating rating;
+	private Ratings rating;
 	private List<CreditRequest> creditRequests;
 	
 	
 	public Customer(long customerId, String firstName, String middleName,
 			String lastName, BigDecimal openBalance, Address address,
-			DisbursementPreference disbursementPreference, Rating rating,
+			DisbursementPreference disbursementPreference, Ratings rating,
 			List<CreditRequest> creditRequests) {
 		super();
 		this.customerId = customerId;
@@ -104,12 +104,12 @@ public class Customer {
 	}
 
 
-	public Rating getRating() {
+	public Ratings getRating() {
 		return rating;
 	}
 
 
-	public void setRating(Rating rating) {
+	public void setRating(Ratings rating) {
 		this.rating = rating;
 	}
 

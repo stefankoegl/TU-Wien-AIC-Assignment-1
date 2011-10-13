@@ -1,6 +1,6 @@
 package at.ac.tuwien.infosys.aicc11;
 
-public enum Rating {
+public enum Ratings {
 	
 	AAA,
 	
