@@ -42,7 +42,7 @@ public class SimpleClient {
 		
 		for(Warrantor warrantor : creditRequest.getWarrantors())
 		{
-			Ratings rating = ratingService.getRating(warrantor); 
+			Ratings rating = ratingService.getRating(warrantor.getCustomerId()); 
 			warrantor.setRating(rating);
 		}
 		
