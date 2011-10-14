@@ -1,0 +1,51 @@
+
+                      Interessante Links
+                   für Webservices mit Java
+
+
+ SOAP
+======
+http://en.wikipedia.org/wiki/SOAP
+http://www.w3.org/TR/soap/
+http://www.w3schools.com/soap/default.asp
+http://java.sun.com/developer/technicalArticles/xml/webservices/
+
+
+ WSDL
+======
+http://en.wikipedia.org/wiki/Web_Services_Description_Language
+http://www.w3.org/TR/wsdl
+http://www.w3schools.com/wsdl/default.asp
+
+
+ WS-I Basic Profile
+====================
+http://en.wikipedia.org/wiki/WS-I_Basic_Profile
+http://en.wikipedia.org/wiki/Web_Services_Interoperability#WS-I_Profiles
+http://www.ws-i.org/Profiles/BasicProfile-1.1.html
+
+
+ JAXB
+======
+http://jaxb.java.net/
+http://jaxb.java.net/tutorial/
+http://en.wikipedia.org/wiki/Java_Architecture_for_XML_Binding
+
+
+ JAX-WS
+========
+http://en.wikipedia.org/wiki/Java_API_for_XML_Web_Services
+http://jax-ws.java.net/
+
+
+ JAX-RS
+========
+http://en.wikipedia.org/wiki/Java_API_for_RESTful_Web_Services
+http://cxf.apache.org/docs/jax-rs.html
+
+
+ Apache CXF
+============
+http://cxf.apache.org/
+http://cxf.apache.org/docs/index.html
+
