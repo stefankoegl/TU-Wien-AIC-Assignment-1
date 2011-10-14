@@ -1,9 +1,13 @@
 package at.ac.tuwien.infosys.aicc11.client;
 
+import java.util.Vector;
+
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
 import at.ac.tuwien.infosys.aicc11.Ratings;
+import at.ac.tuwien.infosys.aicc11.services.ContractManagementService;
 import at.ac.tuwien.infosys.aicc11.services.Rating;
+import at.ac.tuwien.infosys.aicc11.services.RatingService;
 import at.ac.tuwien.infosys.aicc11.Warrantor;
 import at.ac.tuwien.infosys.aicc11.services.ContractManagement;
 
@@ -20,8 +24,8 @@ public class SimpleClient {
 	/* These represent the services -- the communication should happen 
 	 * through the webservice interfaces of course 
 	 */
-	private static ContractManagement contractManagementService;
-	private static Rating ratingService;
+	private static ContractManagement contractManagementService = new ContractManagementService();
+	private static Rating ratingService = new RatingService();
 	
 	public static void main(String[] args)
 	{
@@ -48,7 +52,7 @@ public class SimpleClient {
 
 	private static CreditRequest getRequestDataFromCustomer() {
 		/* let user enter amount, etc */
-		return new CreditRequest(0, null, null, null, null, null, null);
+		return new CreditRequest(0, new Vector<Warrantor>(), null, null, null, null, null);
 	}
 	
 	private static void handleOffer(Offer offer)
