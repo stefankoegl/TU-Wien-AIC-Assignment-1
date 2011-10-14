@@ -1,10 +1,19 @@
 package at.ac.tuwien.infosys.aicc11;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="bank_transfer")
 public class BankTransfer extends DisbursementPreference {
 
 	private String bankName;
 	private String bic;
 	private String iban;
+	
+	public BankTransfer()
+	{
+		this("", "", "");
+	}
 	
 	public BankTransfer(String bankName, String bic, String iban) {
 		super();
@@ -13,6 +22,7 @@ public class BankTransfer extends DisbursementPreference {
 		this.iban = iban;
 	}
 	
+	@XmlElement(name="bank_name")
 	public String getBankName() {
 		return bankName;
 	}

@@ -2,6 +2,10 @@ package at.ac.tuwien.infosys.aicc11;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Vector;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 public class Customer {
 	
@@ -15,6 +19,10 @@ public class Customer {
 	private Ratings rating;
 	private List<CreditRequest> creditRequests;
 	
+	public Customer()
+	{
+		this(0, "", "", "", new BigDecimal(0), new Address(), new Cheque(), Ratings.A, new Vector<CreditRequest>());
+	}
 	
 	public Customer(long customerId, String firstName, String middleName,
 			String lastName, BigDecimal openBalance, Address address,
@@ -32,7 +40,7 @@ public class Customer {
 		this.creditRequests = creditRequests;
 	}
 
-
+	@XmlAttribute(name="customer_id")
 	public long getCustomerId() {
 		return customerId;
 	}
@@ -43,6 +51,7 @@ public class Customer {
 	}
 
 
+	@XmlElement(name="first_name")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -53,6 +62,7 @@ public class Customer {
 	}
 
 
+	@XmlElement(name="middle_name")
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -62,7 +72,7 @@ public class Customer {
 		this.middleName = middleName;
 	}
 
-
+	@XmlElement(name="last_name")
 	public String getLastName() {
 		return lastName;
 	}
@@ -73,6 +83,7 @@ public class Customer {
 	}
 
 
+	@XmlElement(name="open_balance")
 	public BigDecimal getOpenBalance() {
 		return openBalance;
 	}
@@ -93,6 +104,7 @@ public class Customer {
 	}
 
 
+	@XmlElement(name="disbursement_preference")
 	public DisbursementPreference getDisbursementPreference() {
 		return disbursementPreference;
 	}
@@ -114,6 +126,7 @@ public class Customer {
 	}
 
 
+	@XmlElement(name="credit_request")
 	public List<CreditRequest> getCreditRequests() {
 		return creditRequests;
 	}

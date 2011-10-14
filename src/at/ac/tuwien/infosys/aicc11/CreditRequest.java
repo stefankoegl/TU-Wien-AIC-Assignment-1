@@ -1,7 +1,14 @@
 package at.ac.tuwien.infosys.aicc11;
 
 import java.util.List;
+import java.util.Vector;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+
+@XmlRootElement(name="credit_request")
 public class CreditRequest {
 	
 	private long requestId;
@@ -12,6 +19,10 @@ public class CreditRequest {
 	private Money amount;
 	private Duration duration;
 	
+	public CreditRequest()
+	{
+		this(0, new Vector<Warrantor>(), new Customer(), new Offer(), new Money(), new Duration(), "");
+	}
 	
 	public CreditRequest(long requestId, List<Warrantor> warrantors, 
 			Customer customer, Offer offer, Money amount, 
@@ -27,6 +38,7 @@ public class CreditRequest {
 	}
 
 
+	@XmlAttribute(name="request_id")
 	public long getRequestId() {
 		return requestId;
 	}

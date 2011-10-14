@@ -1,10 +1,16 @@
 package at.ac.tuwien.infosys.aicc11;
 
+import javax.xml.bind.annotation.XmlElement;
+
 public class Money {
 	
 	private String currencyCode;
 	private long amount;
 	
+	public Money()
+	{
+		this("", 0);
+	}
 	
 	public Money(String currencyCode, long amount) {
 		super();
@@ -12,7 +18,7 @@ public class Money {
 		this.amount = amount;
 	}
 
-
+	@XmlElement(name="currency_code")
 	public String getCurrencyCode() {
 		return currencyCode;
 	}

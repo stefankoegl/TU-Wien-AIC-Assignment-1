@@ -1,5 +1,10 @@
 package at.ac.tuwien.infosys.aicc11;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="address")
 public class Address {
 	
 	private String id;
@@ -8,6 +13,11 @@ public class Address {
 	private String house;
 	private String door;
 	private String zipCode;
+	
+	public Address()
+	{
+		this("", "", "", "", "", "");
+	}
 
 	public Address(String id, String street, String city, String house,
 			String door, String zipCode) {
@@ -20,6 +30,7 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 	
+	@XmlAttribute(name="id")
 	public String getId() {
 		return id;
 	}
@@ -50,6 +61,8 @@ public class Address {
 	public void setDoor(String door) {
 		this.door = door;
 	}
+	
+	@XmlElement(name="zip_code")
 	public String getZipCode() {
 		return zipCode;
 	}

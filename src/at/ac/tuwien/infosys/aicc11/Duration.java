@@ -3,6 +3,11 @@ package at.ac.tuwien.infosys.aicc11;
 public class Duration {
 	
 	private int years;
+	
+	public Duration()
+	{
+		this(0);
+	}
 
 	public Duration(int years) {
 		super();

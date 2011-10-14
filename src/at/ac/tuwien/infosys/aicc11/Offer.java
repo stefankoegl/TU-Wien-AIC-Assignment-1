@@ -1,11 +1,18 @@
 package at.ac.tuwien.infosys.aicc11;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+
 public class Offer {
 	
 	private long offerId;
 	private String comments;
 	private InterestRate interestRate;
 	
+	public Offer()
+	{
+		this(0, "", new InterestRate());
+	}
 	
 	public Offer(long offerId, String comments, InterestRate interestRate) {
 		super();
@@ -14,7 +21,7 @@ public class Offer {
 		this.interestRate = interestRate;
 	}
 
-
+	@XmlAttribute(name="offer_id")
 	public long getOfferId() {
 		return offerId;
 	}
@@ -35,6 +42,7 @@ public class Offer {
 	}
 
 
+	@XmlElement(name="interest_rate")
 	public InterestRate getInterestRate() {
 		return interestRate;
 	}

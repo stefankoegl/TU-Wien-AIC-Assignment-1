@@ -3,6 +3,11 @@ package at.ac.tuwien.infosys.aicc11;
 public class InterestRate {
 
 	private double rate;
+	
+	public InterestRate()
+	{
+		this(0);
+	}
 
 	public InterestRate(double rate) {
 		super();

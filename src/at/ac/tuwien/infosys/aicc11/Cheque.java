@@ -1,8 +1,16 @@
 package at.ac.tuwien.infosys.aicc11;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="cheque")
 public class Cheque extends DisbursementPreference {
 
 	private String name;
+	
+	public Cheque()
+	{
+		this("");
+	}
 
 	public Cheque(String name) {
 		super();
