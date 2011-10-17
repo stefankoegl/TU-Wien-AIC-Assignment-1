@@ -21,13 +21,12 @@ public class Customer {
 	
 	public Customer()
 	{
-		this(0, "", "", "", new BigDecimal(0), new Address(), new Cheque(), Ratings.A, new Vector<CreditRequest>());
+		this(0, "", "", "", new BigDecimal(0), new Address(), new Cheque());
 	}
 	
 	public Customer(long customerId, String firstName, String middleName,
 			String lastName, BigDecimal openBalance, Address address,
-			DisbursementPreference disbursementPreference, Ratings rating,
-			List<CreditRequest> creditRequests) {
+			DisbursementPreference disbursementPreference) {
 		super();
 		this.customerId = customerId;
 		this.firstName = firstName;
@@ -36,8 +35,8 @@ public class Customer {
 		this.openBalance = openBalance;
 		this.address = address;
 		this.disbursementPreference = disbursementPreference;
-		this.rating = rating;
-		this.creditRequests = creditRequests;
+		this.rating = null;
+		this.creditRequests = new Vector<CreditRequest>();
 	}
 
 	@XmlAttribute(name="customer_id")

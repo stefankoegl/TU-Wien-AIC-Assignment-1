@@ -1,19 +1,14 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-//import at.ac.tuwien.infosys.aicc11.Customer;
-
 import at.ac.tuwien.infosys.aicc11.Ratings;
+import at.ac.tuwien.infosys.aicc11.legacy.LegacyRating;
 
-public class RatingImpl implements Rating {
-
-	public Ratings getRating(long customerId) {
-		// TODO just some test value
-		if (customerId==0)
-		    return Ratings.A;
-		if (customerId==23)
-		    return Ratings.AAA;
-		else
-		    return Ratings.AAMinus;
+public class RatingImpl implements Rating 
+{
+	LegacyRating backend = new LegacyRating();
+	
+	public Ratings getRating(long customerId) 
+	{
+		return backend.getRating(customerId);
 	}
-
 }

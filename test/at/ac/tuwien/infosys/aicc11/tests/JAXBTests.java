@@ -18,7 +18,6 @@ import at.ac.tuwien.infosys.aicc11.Duration;
 import at.ac.tuwien.infosys.aicc11.InterestRate;
 import at.ac.tuwien.infosys.aicc11.Money;
 import at.ac.tuwien.infosys.aicc11.Offer;
-import at.ac.tuwien.infosys.aicc11.Ratings;
 import at.ac.tuwien.infosys.aicc11.Warrantor;
 import junit.framework.TestCase;
 
@@ -33,9 +32,7 @@ public class JAXBTests extends TestCase {
 		CreditRequest a = new CreditRequest(123, new Vector<Warrantor>(), 
 				new Customer(100, "A", "B", "C", new BigDecimal(100), 
 						new Address("100", "Street", "City", "100A", "10/2", "1000"),
-						new BankTransfer("MyBank", "10000", "AAAA"),
-						Ratings.AA,
-						new Vector<CreditRequest>()),
+						new BankTransfer("MyBank", "10000", "AAAA")),
 				new Offer(150, "first offer", new InterestRate(0.5)), 
 				new Money("EUR", 1000), 
 				new Duration(100), "test");
