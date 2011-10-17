@@ -4,7 +4,7 @@ package at.ac.tuwien.infosys.aicc11.services;
 
 import at.ac.tuwien.infosys.aicc11.Ratings;
 
-public class RatingService implements Rating {
+public class RatingImpl implements Rating {
 
 	public Ratings getRating(long customerId) {
 		// TODO just some test value

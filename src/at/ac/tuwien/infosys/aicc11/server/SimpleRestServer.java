@@ -2,7 +2,7 @@ package at.ac.tuwien.infosys.aicc11.server;
 
 import java.util.ArrayList;
 
-import at.ac.tuwien.infosys.aicc11.services.RatingService;
+import at.ac.tuwien.infosys.aicc11.services.RatingImpl;
 //import at.ac.tuwien.infosys.aicc11.services.Rating;
 
 import org.apache.cxf.binding.BindingFactoryManager;
@@ -28,7 +28,7 @@ public class SimpleRestServer {
 	Object prov = new RatingsProvider();
 	providers.add(prov);
 	sf.setProviders(providers);
-	sf.setResourceClasses(RatingService.class);
+	sf.setResourceClasses(RatingImpl.class);
 	sf.setAddress("http://localhost:9000/");
 	
 	sf.create();

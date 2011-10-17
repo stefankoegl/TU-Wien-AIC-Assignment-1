@@ -3,7 +3,7 @@ package at.ac.tuwien.infosys.aicc11.services;
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
 
-public class ContractManagementService implements ContractManagement {
+public class ContractManagementImpl implements ContractManagement {
 
 	@Override
 	public void acccceptOffer(Offer offer) {
