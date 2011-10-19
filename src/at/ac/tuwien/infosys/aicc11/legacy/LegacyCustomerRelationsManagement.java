@@ -8,6 +8,7 @@ import at.ac.tuwien.infosys.aicc11.Address;
 import at.ac.tuwien.infosys.aicc11.BankTransfer;
 import at.ac.tuwien.infosys.aicc11.Cheque;
 import at.ac.tuwien.infosys.aicc11.Customer;
+import at.ac.tuwien.infosys.aicc11.Ratings;
 
 /**
  * I assume that we don't need to create new customers, just use existing ones
@@ -16,9 +17,17 @@ import at.ac.tuwien.infosys.aicc11.Customer;
  */
 public class LegacyCustomerRelationsManagement {
 	
+    	private static LegacyCustomerRelationsManagement instance;
+    
 	private Map<Long, Customer> customers = new Hashtable<Long, Customer>();
 	
-	public LegacyCustomerRelationsManagement()
+	public static LegacyCustomerRelationsManagement instance() {
+	    if (instance == null)
+		instance = new LegacyCustomerRelationsManagement();
+	    return instance;
+	}
+	
+	private LegacyCustomerRelationsManagement()
 	{		
 		customers.put(1L, new Customer(1, "Stefan", "A.", "Kögl", new BigDecimal(10000), new Address(), new Cheque("Stefan Kögl")));
 		customers.put(2L, new Customer(2, "Stefan", "B.", "Derkits", new BigDecimal(10000), new Address(), new BankTransfer("MyBank", "12345", "ABCA234234")));
@@ -34,6 +43,7 @@ public class LegacyCustomerRelationsManagement {
 	 * @return
 	 */
 	public Customer getCustomerByName(String name)
+	throws LegacyException
 	{
 		for(Customer customer : customers.values())
 		{
@@ -45,7 +55,16 @@ public class LegacyCustomerRelationsManagement {
 			}
 		}
 		
-		return null;	
+		throw new LegacyException("Customer not found (getCustomerByName)");
+	}
+	
+	public Customer getCustomerByID(long customerId)
+	throws LegacyException
+	{
+	    if (customers.containsKey(customerId))
+		return customers.get(customerId);
+	    else
+		throw new LegacyException("Customer not found (getCustomerByID)");
 	}
 	
 	public synchronized void sendEmail(Customer customer)
@@ -57,5 +76,17 @@ public class LegacyCustomerRelationsManagement {
 		}
 		
 		// send mail! 
+	}
+	
+	public Ratings getRating(long customerId)
+	throws LegacyException
+	{
+		// chose rating based on customer-Id
+	    	if (!customers.containsKey(customerId))
+	    	    throw new LegacyException("Customer not found (getRating");
+		Ratings[] ratings = Ratings.values();
+		int numRatings = ratings.length;
+		int rating = (int)customerId % numRatings;
+		return ratings[rating];
 	}
 }
