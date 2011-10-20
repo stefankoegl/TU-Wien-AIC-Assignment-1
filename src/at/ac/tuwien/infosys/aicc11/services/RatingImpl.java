@@ -21,8 +21,9 @@ public class RatingImpl implements Rating
 	    catch (LegacyException e) {
 		System.out.println(e);
 		ResponseBuilderImpl builder = new ResponseBuilderImpl();
-		builder.status(Response.Status.NOT_FOUND);
-		builder.entity("The requested customer id does not exist.");
+		builder.status(Response.Status.NOT_FOUND); // == 404
+		builder.type("text/html");
+		builder.entity("<h3>The requested customer id does not exist.</h3>");
 		Response resp = builder.build();
 		throw new WebApplicationException(resp);
 	    }
