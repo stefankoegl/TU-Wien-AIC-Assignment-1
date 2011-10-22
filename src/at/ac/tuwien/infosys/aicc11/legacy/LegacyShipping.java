@@ -1,14 +1,24 @@
 package at.ac.tuwien.infosys.aicc11.legacy;
 
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 
 public class LegacyShipping {
 	
+    	private static LegacyShipping instance;
+    	
+    	public static LegacyShipping instance() {
+    	    if (instance == null)
+    		instance = new LegacyShipping();
+    	    return instance;
+    	}
+    	
+    	private LegacyShipping() {
+    	}
+    
 	/* Key: requestId, value: true if fax reply has already been received */
-	private Map<Long, Boolean> sentFaxes = new Hashtable<Long, Boolean>();
+	private ConcurrentHashMap<Long, Boolean> sentFaxes = new ConcurrentHashMap<Long, Boolean>();
 	
 	public synchronized void sendFax(CreditRequest creditRequest)
 	throws LegacyException

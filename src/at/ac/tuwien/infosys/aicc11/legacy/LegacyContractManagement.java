@@ -2,9 +2,8 @@ package at.ac.tuwien.infosys.aicc11.legacy;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.DisbursementPreference;
@@ -18,8 +17,20 @@ public class LegacyContractManagement
 	private long nextOfferId = 1;
 	private long nextRequestId = 1;
 	
-	private Map<Long, CreditRequest> requests = new Hashtable<Long, CreditRequest>();
-	private Map<Long, Offer> offers = new Hashtable<Long, Offer>();
+	private ConcurrentHashMap<Long, CreditRequest> requests = new ConcurrentHashMap<Long, CreditRequest>();
+	private ConcurrentHashMap<Long, Offer> offers = new ConcurrentHashMap<Long, Offer>();
+	
+	private static LegacyContractManagement instance;
+	
+	public LegacyContractManagement instance() {
+	    if (instance == null)
+		instance = new LegacyContractManagement();
+	    return instance;
+	}
+	
+	private LegacyContractManagement() {
+	    
+	}
 	
 	
 	/**
