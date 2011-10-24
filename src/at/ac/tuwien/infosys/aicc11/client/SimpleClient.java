@@ -66,7 +66,7 @@ public class SimpleClient {
 			 * http://vc.infosys.tuwien.ac.at/index.php?option=com_kunena&func=view&catid=25&id=31&Itemid=16
 			 * services don't call each other, only the client calls services
 			 */
-			contractManagementService.acccceptOffer(offer);
+			contractManagementService.acceptOffer(offer);
 		}
 		else if (acceptDecision == 1)
 		{

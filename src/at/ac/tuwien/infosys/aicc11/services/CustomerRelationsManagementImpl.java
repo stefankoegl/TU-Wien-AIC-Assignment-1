@@ -1,6 +1,6 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-public class CustomerRelationsManagementImpl implements
+public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 		CustomerRelationsManagement {
 
 }

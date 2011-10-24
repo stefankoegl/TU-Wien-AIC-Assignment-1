@@ -1,5 +1,5 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-public class ShippingImpl implements Shipping {
+public class ShippingImpl extends BaseServiceImpl implements Shipping {
 
 }

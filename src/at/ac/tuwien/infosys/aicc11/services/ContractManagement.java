@@ -10,7 +10,7 @@ public interface ContractManagement {
 	
 	void updateCreditRequest(CreditRequest creditRequest);
 	
-	void acccceptOffer(Offer offer);
+	void acceptOffer(Offer offer);
 	
 	void declineOffer(Offer offer);
 
