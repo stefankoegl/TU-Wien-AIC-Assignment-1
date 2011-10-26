@@ -7,7 +7,6 @@ import at.ac.tuwien.infosys.aicc11.Offer;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
 
-import javax.jws.*;
 import javax.xml.ws.*;
 
 @WebService(endpointInterface="at.ac.tuwien.infosys.aicc11.services.ContractManagement",
@@ -55,7 +54,7 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	}
 
 	@Override
-	public void placeCreditRequest(CreditRequest creditRequest) 
+	public CreditRequest placeCreditRequest(CreditRequest creditRequest) 
 	{		
 		entering("placeCreditRequest", new Object[]{creditRequest});
 
@@ -66,10 +65,11 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		}
 		
 		exiting("placeCreditRequest");
+		return creditRequest;
 	}
 
 	@Override
-	public void updateCreditRequest(CreditRequest creditRequest) 
+	public CreditRequest updateCreditRequest(CreditRequest creditRequest) 
 	{
 		entering("updateCreditRequest", new Object[]{creditRequest});
 
@@ -80,5 +80,6 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		}
 
 		exiting("updateCreditRequest");
+		return creditRequest;
 	}
 }
