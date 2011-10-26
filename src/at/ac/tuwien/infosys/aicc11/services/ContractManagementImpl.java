@@ -1,8 +1,13 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
+import javax.jws.WebService;
+
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
 
+
+@WebService(endpointInterface = "at.ac.tuwien.infosys.aicc11.services.ContractManagement",
+            serviceName = "ContractManagementService")
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
 	@Override
