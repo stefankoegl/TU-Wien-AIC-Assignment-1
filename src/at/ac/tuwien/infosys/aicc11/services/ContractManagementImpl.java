@@ -1,5 +1,7 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
+import javax.jws.WebService;
+
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
@@ -12,7 +14,6 @@ import javax.xml.ws.*;
 targetNamespace="at.ac.tuwien.infosys.aic11.services",
 serviceName="ContractManagementService"
 )
-
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
