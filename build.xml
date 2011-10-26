@@ -1,0 +1,60 @@
+<project name="AIC-Assignment1" default="compile" basedir=".">
+	<description>
+		<!-- Project Description -->
+	</description>
+
+	<!-- set global properties for this build -->
+	<property name="projectName" value="ProjectName"/>
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp/>
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<target name="compile" depends="init"
+  	description="compile the source " >
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+			<classpath>
+				<fileset dir="lib">
+					<include name="*.jar"/>
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+
+	<target name="clean"
+    	description="clean up" >
+		<!-- Delete the ${build} directory tree -->
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="run-CMServer">
+		<java classname="at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl">
+			<classpath>
+				<dirset dir="${build}">
+					<include name="**"/>
+				</dirset>
+				<fileset dir="lib">
+					<include name="*.jar"/>
+					<!--<include name="**/geronimo*.jar" />
+					<include name="**/commons-logging*.jar" />
+					<include name="**/jaxb*.jar" />
+					<include name="**/jetty*.jar" />
+					<include name="**/neethi*.jar" />
+					<include name="**/saaj*.jar" />
+					<include name="**/wsdl4j*.jar" />
+					<include name="**/woodstox*.jar" />
+					<include name="**/xmlschema*.jar" />
+					<include name="**/xml-resolver*.jar" />
+					<include name="**/cxf*.jar" />-->
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+</project>

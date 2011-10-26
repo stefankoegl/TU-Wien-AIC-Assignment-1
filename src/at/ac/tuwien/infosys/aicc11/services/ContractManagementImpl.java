@@ -2,14 +2,39 @@ package at.ac.tuwien.infosys.aicc11.services;
 
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
+import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
+import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
+
+import javax.jws.*;
+import javax.xml.ws.*;
+
+@WebService(endpointInterface="at.ac.tuwien.infosys.aicc11.services.ContractManagement",
+targetNamespace="at.ac.tuwien.infosys.aic11.services",
+serviceName="ContractManagementService"
+)
 
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
+	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
+	
+	public static void main(String[] args) {
+		System.out.println("Starting Server");
+		ContractManagement contractManagement = new ContractManagementImpl();
+		String address = "http://localhost:9000/contractManagement";
+		Endpoint.publish(address, contractManagement);
+		
+		while(true) {}
+	}
+	
 	@Override
 	public void acceptOffer(Offer offer) {
 		entering("acceptOffer", new Object[]{offer});
 		
-		// TODO Auto-generated method stub
+		try {
+			legacyContractManagement.acceptOffer(offer);
+		} catch (LegacyException e) {
+			System.err.println(e.getMessage());
+		}
 		
 		exiting("acceptOffer");
 	}
@@ -19,8 +44,12 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	{
 		entering("declineOffer", new Object[]{offer});
 
-		// TODO Auto-generated method stub
-
+		try {
+			legacyContractManagement.deleteOffer(offer);
+		} catch (LegacyException e) {
+			System.err.println(e.getMessage());
+		}
+		
 		exiting("declineOffer");
 	}
 
@@ -29,7 +58,11 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	{		
 		entering("placeCreditRequest", new Object[]{creditRequest});
 
-		// TODO Auto-generated method stub
+		try {
+			legacyContractManagement.createCreditRequest(creditRequest);
+		} catch (LegacyException e) {
+			System.err.println(e.getMessage());
+		}
 		
 		exiting("placeCreditRequest");
 	}
@@ -39,7 +72,11 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	{
 		entering("updateCreditRequest", new Object[]{creditRequest});
 
-		// TODO Auto-generated method stub
+		try {
+			legacyContractManagement.updateCreditRequest(creditRequest);
+		} catch (LegacyException e) {
+			System.err.println(e.getMessage());
+		}
 
 		exiting("updateCreditRequest");
 	}

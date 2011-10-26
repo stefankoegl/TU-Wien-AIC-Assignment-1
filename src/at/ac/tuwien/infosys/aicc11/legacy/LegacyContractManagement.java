@@ -22,7 +22,7 @@ public class LegacyContractManagement
 	
 	private static LegacyContractManagement instance;
 	
-	public LegacyContractManagement instance() {
+	public static LegacyContractManagement instance() {
 	    if (instance == null)
 		instance = new LegacyContractManagement();
 	    return instance;
