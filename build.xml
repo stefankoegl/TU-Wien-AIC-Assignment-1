@@ -34,25 +34,31 @@
 		<delete dir="${build}"/>
 	</target>
 
-	<target name="run-CMServer">
+	<target name="run-CMService">
 		<java classname="at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl">
+			<arg value="localhost"/>
+			<arg value="9000"/>
 			<classpath>
 				<dirset dir="${build}">
 					<include name="**"/>
 				</dirset>
 				<fileset dir="lib">
 					<include name="*.jar"/>
-					<!--<include name="**/geronimo*.jar" />
-					<include name="**/commons-logging*.jar" />
-					<include name="**/jaxb*.jar" />
-					<include name="**/jetty*.jar" />
-					<include name="**/neethi*.jar" />
-					<include name="**/saaj*.jar" />
-					<include name="**/wsdl4j*.jar" />
-					<include name="**/woodstox*.jar" />
-					<include name="**/xmlschema*.jar" />
-					<include name="**/xml-resolver*.jar" />
-					<include name="**/cxf*.jar" />-->
+				</fileset>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="run-CRMService">
+		<java classname="at.ac.tuwien.infosys.aicc11.services.CustomerRelationsManagementImpl">
+			<arg value="localhost"/>
+			<arg value="9001"/>
+			<classpath>
+				<dirset dir="${build}">
+					<include name="**"/>
+				</dirset>
+				<fileset dir="lib">
+					<include name="*.jar"/>
 				</fileset>
 			</classpath>
 		</java>

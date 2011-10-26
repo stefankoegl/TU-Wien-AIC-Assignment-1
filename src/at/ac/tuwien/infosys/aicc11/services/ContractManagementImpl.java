@@ -18,9 +18,13 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
 	
 	public static void main(String[] args) {
+		if (args.length != 2) {
+			System.out.println("Usage: ContractManagementImpl <host> <port>");
+		}
+		
 		System.out.println("Starting Server");
 		ContractManagement contractManagement = new ContractManagementImpl();
-		String address = "http://localhost:9000/contractManagement";
+		String address = "http://" + args[0] + ":" + args[1] +"/contractManagement";
 		Endpoint.publish(address, contractManagement);
 		
 		while(true) {}
