@@ -143,3 +143,12 @@ LOGGING = {
         },
     }
 }
+
+#Constants for AIC11 Webapp
+SERVER = "localhost:9000"
+PROTOCOL = "http://"
+WSDLS = {
+         'customers' : PROTOCOL+SERVER+"/customers?wsdl",
+         'contracts' : PROTOCOL+SERVER+"/contracts?wsdl",
+         'shipping'  : PROTOCOL+SERVER+"/shipping?wsdl",
+}
