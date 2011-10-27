@@ -1,34 +1,13 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-import javax.jws.WebService;
-
 import at.ac.tuwien.infosys.aicc11.CreditRequest;
 import at.ac.tuwien.infosys.aicc11.Offer;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
 
-import javax.xml.ws.*;
-
-@WebService(endpointInterface="at.ac.tuwien.infosys.aicc11.services.ContractManagement",
-targetNamespace="at.ac.tuwien.infosys.aic11.services",
-serviceName="ContractManagementService"
-)
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
-	
-	public static void main(String[] args) {
-		if (args.length != 2) {
-			System.out.println("Usage: ContractManagementImpl <host> <port>");
-		}
-		
-		System.out.println("Starting Server");
-		ContractManagement contractManagement = new ContractManagementImpl();
-		String address = "http://" + args[0] + ":" + args[1] +"/contractManagement";
-		Endpoint.publish(address, contractManagement);
-		
-		while(true) {}
-	}
 	
 	@Override
 	public void acceptOffer(Offer offer) {

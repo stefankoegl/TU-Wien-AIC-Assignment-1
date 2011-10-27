@@ -114,7 +114,7 @@ public class Customer {
 		this.disbursementPreference = disbursementPreference;
 	}
 
-
+	@XmlElement(name="rating", nillable = true)
 	public Ratings getRating() {
 		return rating;
 	}
