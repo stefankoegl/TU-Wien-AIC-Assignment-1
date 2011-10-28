@@ -8,17 +8,19 @@ public class Offer {
 	private long offerId;
 	private String comments;
 	private InterestRate interestRate;
+	private CreditRequest request;
 	
 	public Offer()
 	{
-		this(0, "", new InterestRate());
+		this(0, "", new InterestRate(), new CreditRequest());
 	}
 	
-	public Offer(long offerId, String comments, InterestRate interestRate) {
+	public Offer(long offerId, String comments, InterestRate interestRate, CreditRequest request) {
 		super();
 		this.offerId = offerId;
 		this.comments = comments;
 		this.interestRate = interestRate;
+		this.request = request;
 	}
 
 	@XmlAttribute(name="offer_id")
@@ -51,42 +53,53 @@ public class Offer {
 	public void setInterestRate(InterestRate interestRate) {
 		this.interestRate = interestRate;
 	}
+	
+	public CreditRequest getRequest() {
+	    return request;
+	}
 
+	public void setRequest(CreditRequest request) {
+	    this.request = request;
+	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((comments == null) ? 0 : comments.hashCode());
-		result = prime * result
-				+ ((interestRate == null) ? 0 : interestRate.hashCode());
-		result = prime * result + (int) (offerId ^ (offerId >>> 32));
-		return result;
+	    final int prime = 31;
+	    int result = 1;
+	    result = prime * result + ((comments == null) ? 0 : comments.hashCode());
+	    result = prime * result + ((interestRate == null) ? 0 : interestRate.hashCode());
+	    result = prime * result + (int) (offerId ^ (offerId >>> 32));
+	    result = prime * result + ((request == null) ? 0 : request.hashCode());
+	    return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Offer))
-			return false;
-		Offer other = (Offer) obj;
-		if (comments == null) {
-			if (other.comments != null)
-				return false;
-		} else if (!comments.equals(other.comments))
-			return false;
-		if (interestRate == null) {
-			if (other.interestRate != null)
-				return false;
-		} else if (!interestRate.equals(other.interestRate))
-			return false;
-		if (offerId != other.offerId)
-			return false;
+	    if (this == obj)
 		return true;
+	    if (obj == null)
+		return false;
+	    if (getClass() != obj.getClass())
+		return false;
+	    Offer other = (Offer) obj;
+	    if (comments == null) {
+		if (other.comments != null)
+		    return false;
+	    } else if (!comments.equals(other.comments))
+		return false;
+	    if (interestRate == null) {
+		if (other.interestRate != null)
+		    return false;
+	    } else if (!interestRate.equals(other.interestRate))
+		return false;
+	    if (offerId != other.offerId)
+		return false;
+	    if (request == null) {
+		if (other.request != null)
+		    return false;
+	    } else if (!request.equals(other.request))
+		return false;
+	    return true;
 	}
+
 }
