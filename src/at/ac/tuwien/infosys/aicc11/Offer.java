@@ -54,6 +54,7 @@ public class Offer {
 		this.interestRate = interestRate;
 	}
 	
+	@XmlElement(name="credit_request")
 	public CreditRequest getRequest() {
 	    return request;
 	}
