@@ -33,7 +33,7 @@ public class JAXBTests extends TestCase {
 				new Customer(100, "A", "B", "C", new BigDecimal(100), 
 						new Address("100", "Street", "City", "100A", "10/2", "1000"),
 						new BankTransfer("MyBank", "10000", "AAAA")),
-				new Offer(150, "first offer", new InterestRate(0.5)), 
+				new Offer(150, "first offer", new InterestRate(0.5), null), 
 				new Money("EUR", 1000), 
 				new Duration(100), "test");
 		

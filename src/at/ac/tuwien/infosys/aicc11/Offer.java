@@ -2,6 +2,7 @@ package at.ac.tuwien.infosys.aicc11;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 public class Offer {
 	
@@ -12,7 +13,7 @@ public class Offer {
 	
 	public Offer()
 	{
-		this(0, "", new InterestRate(), new CreditRequest());
+		this(0, "", new InterestRate(), null);
 	}
 	
 	public Offer(long offerId, String comments, InterestRate interestRate, CreditRequest request) {
@@ -54,7 +55,7 @@ public class Offer {
 		this.interestRate = interestRate;
 	}
 	
-	@XmlElement(name="credit_request")
+	@XmlTransient
 	public CreditRequest getRequest() {
 	    return request;
 	}
