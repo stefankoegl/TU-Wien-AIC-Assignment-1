@@ -39,7 +39,7 @@ public class LegacyContractManagement
 	 * @return
 	 * @throws LegacyException
 	 */
-	public synchronized CreditRequest createCreditRequest(CreditRequest creditRequest)
+	public synchronized Offer createCreditRequest(CreditRequest creditRequest)
 	throws LegacyException
 	{
 		if (creditRequest.getRequestId() != 0)
@@ -49,11 +49,12 @@ public class LegacyContractManagement
 	
 		long requestId = nextRequestId++;
 		creditRequest.setRequestId(requestId);
-		creditRequest.setOffer(createOffer(creditRequest));
+		Offer offer = createOffer(creditRequest);
+		creditRequest.setOffer(offer);
 		
 		requests.put(requestId, creditRequest);
 		
-		return creditRequest;
+		return offer;
 	}
 	
 	/**
@@ -61,7 +62,7 @@ public class LegacyContractManagement
 	 * @param creditRequest
 	 * @throws LegacyException
 	 */
-	public synchronized CreditRequest updateCreditRequest(CreditRequest creditRequest)
+	public synchronized Offer updateCreditRequest(CreditRequest creditRequest)
 	throws LegacyException
 	{
 		if (creditRequest.getRequestId() == 0)
@@ -83,11 +84,11 @@ public class LegacyContractManagement
 		{
 			// should we log a warning here?
 		}
-		
-		creditRequest.setOffer(createOffer(creditRequest));
+		Offer offer = createOffer(creditRequest);
+		creditRequest.setOffer(offer);
 		requests.put(creditRequest.getRequestId(), creditRequest);
 		
-		return creditRequest;
+		return offer;
 	}
 	
 	// we could also pass the whole CreditRequest here, so that we can check if it actually exists...

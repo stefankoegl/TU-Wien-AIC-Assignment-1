@@ -37,32 +37,32 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	}
 
 	@Override
-	public CreditRequest placeCreditRequest(CreditRequest creditRequest) 
+	public Offer placeCreditRequest(CreditRequest creditRequest) 
 	{		
 		entering("placeCreditRequest", new Object[]{creditRequest});
-
+		Offer offer = new Offer();
 		try {
-			legacyContractManagement.createCreditRequest(creditRequest);
+			offer = legacyContractManagement.createCreditRequest(creditRequest);
 		} catch (LegacyException e) {
 			System.err.println(e.getMessage());
 		}
 		
 		exiting("placeCreditRequest");
-		return creditRequest;
+		return offer;
 	}
 
 	@Override
-	public CreditRequest updateCreditRequest(CreditRequest creditRequest) 
+	public Offer updateCreditRequest(CreditRequest creditRequest) 
 	{
 		entering("updateCreditRequest", new Object[]{creditRequest});
-
+		Offer offer = new Offer();
 		try {
-			legacyContractManagement.updateCreditRequest(creditRequest);
+			offer = legacyContractManagement.updateCreditRequest(creditRequest);
 		} catch (LegacyException e) {
 			System.err.println(e.getMessage());
 		}
 
 		exiting("updateCreditRequest");
-		return creditRequest;
+		return offer;
 	}
 }
