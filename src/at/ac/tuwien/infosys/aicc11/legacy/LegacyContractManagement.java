@@ -133,6 +133,7 @@ public class LegacyContractManagement
 		offer.setInterestRate(getInterestRate(creditRequest));
 		offer.setComments("spend wisely!");
 		offer.setOfferId(offerId);
+		offer.setRequest(creditRequest);
 		
 		offers.put(offerId, offer);
 		
