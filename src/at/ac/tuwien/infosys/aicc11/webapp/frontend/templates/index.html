@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Select Customer</h2>
+
+<form method="post" action="/customers">
+ {% csrf_token %}
+ Name: <input type="text" name="name">
+ <submit value="Search" />
+</form>
+{% endblock %}
