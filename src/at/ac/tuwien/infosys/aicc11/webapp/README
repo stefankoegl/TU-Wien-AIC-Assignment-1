@@ -9,6 +9,10 @@ Dependencies:
 
 cd into this directory: src/at/ac/tuwien/infosys/aicc11/webapp
 
+To set up the database, run
+
+ ./manage syncdb
+
 To start the webserver, run
 
  ./manage runserver
