@@ -33,7 +33,7 @@ def declineOffer(offer):
 
 #wrapping of Factory methods to make things easier
 def createCreditRequest():
-    return contract_client.factory.create("credit_request")
+    return contract_client.factory.create("creditRequest")
 
 def createMoney():
     return contract_client.factory.create("money")
