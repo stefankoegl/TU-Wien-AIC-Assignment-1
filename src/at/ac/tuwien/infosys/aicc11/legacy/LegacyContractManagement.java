@@ -50,7 +50,7 @@ public class LegacyContractManagement
 		long requestId = nextRequestId++;
 		creditRequest.setRequestId(requestId);
 		Offer offer = createOffer(creditRequest);
-		creditRequest.setOffer(offer);
+		offer.setRequest(creditRequest);
 		
 		requests.put(requestId, creditRequest);
 		
@@ -75,17 +75,8 @@ public class LegacyContractManagement
 			throw new LegacyException("request with Id " + creditRequest.getRequestId() + " does not exist");
 		}
 		
-		if (offers.containsKey(creditRequest.getOffer().getOfferId()))
-		{
-			// Remove the old offer so it can't be accepted anymore
-			offers.remove(creditRequest.getOffer().getOfferId());
-		}
-		else
-		{
-			// should we log a warning here?
-		}
 		Offer offer = createOffer(creditRequest);
-		creditRequest.setOffer(offer);
+		offer.setRequest(creditRequest);
 		requests.put(creditRequest.getRequestId(), creditRequest);
 		
 		return offer;
@@ -178,21 +169,9 @@ public class LegacyContractManagement
 		return sum;
 	}
 	
-	public void disburseMoney(CreditRequest creditRequest)
+	public void disburseMoney(Offer offer)
 	throws LegacyException
 	{
-		if (creditRequest.getRequestId() == 0)
-		{
-			throw new LegacyException("can't process request without Id");
-		}
-		
-		if (!requests.containsKey(creditRequest.getRequestId()))
-		{
-			throw new LegacyException("request with Id " + creditRequest.getRequestId() + " does not exist");
-		}
-		
-		Offer offer = creditRequest.getOffer();
-		
 		if (offer == null)
 		{
 			throw new LegacyException("request does not have an offer");
@@ -208,6 +187,18 @@ public class LegacyContractManagement
 			throw new LegacyException("offer with Id " + offer.getOfferId() + " does not exist");
 		}
 
+		CreditRequest creditRequest = offer.getRequest();
+		
+		if (creditRequest.getRequestId() == 0)
+		{
+			throw new LegacyException("can't process request without Id");
+		}
+		
+		if (!requests.containsKey(creditRequest.getRequestId()))
+		{
+			throw new LegacyException("request with Id " + creditRequest.getRequestId() + " does not exist");
+		}
+		
 		DisbursementPreference disbursementPreference = creditRequest.getCustomer().getDisbursementPreference();
 		// disburse money via disbursementPreference
 	}

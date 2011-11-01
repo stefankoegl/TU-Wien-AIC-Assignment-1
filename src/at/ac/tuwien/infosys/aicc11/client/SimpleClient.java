@@ -52,7 +52,7 @@ public class SimpleClient {
 
 	private static CreditRequest getRequestDataFromCustomer() {
 		/* let user enter amount, etc */
-		return new CreditRequest(0, new Vector<Warrantor>(), null, null, null, null, null);
+		return new CreditRequest(0, new Vector<Warrantor>(), null, null, null, null);
 	}
 	
 	private static void handleOffer(Offer offer)

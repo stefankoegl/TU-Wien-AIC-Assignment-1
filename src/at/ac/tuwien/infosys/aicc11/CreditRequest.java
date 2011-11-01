@@ -15,24 +15,22 @@ public class CreditRequest {
 	private String reason;
 	private List<Warrantor> warrantors;
 	private Customer customer;
-	private Offer offer;
 	private Money amount;
 	private Duration duration;
 	
 	public CreditRequest()
 	{
-		this(0, new Vector<Warrantor>(), new Customer(), new Offer(), new Money(), new Duration(), "");
+		this(0, new Vector<Warrantor>(), new Customer(), new Money(), new Duration(), "");
 	}
 	
 	public CreditRequest(long requestId, List<Warrantor> warrantors, 
-			Customer customer, Offer offer, Money amount, 
+			Customer customer, Money amount, 
 			Duration duration, String reason) {
 		super();
 		this.requestId = requestId;
 		this.reason = reason;
 		this.warrantors = warrantors;
 		this.customer = customer;
-		this.offer = offer;
 		this.amount = amount;
 		this.duration = duration;
 	}
@@ -79,16 +77,6 @@ public class CreditRequest {
 	}
 
 
-	public Offer getOffer() {
-		return offer;
-	}
-
-
-	public void setOffer(Offer offer) {
-		this.offer = offer;
-	}
-
-
 	public Money getAmount() {
 		return amount;
 	}
@@ -118,7 +106,6 @@ public class CreditRequest {
 				+ ((customer == null) ? 0 : customer.hashCode());
 		result = prime * result
 				+ ((duration == null) ? 0 : duration.hashCode());
-		result = prime * result + ((offer == null) ? 0 : offer.hashCode());
 		result = prime * result + ((reason == null) ? 0 : reason.hashCode());
 		result = prime * result + (int) (requestId ^ (requestId >>> 32));
 		result = prime * result
@@ -150,11 +137,6 @@ public class CreditRequest {
 			if (other.duration != null)
 				return false;
 		} else if (!duration.equals(other.duration))
-			return false;
-		if (offer == null) {
-			if (other.offer != null)
-				return false;
-		} else if (!offer.equals(other.offer))
 			return false;
 		if (reason == null) {
 			if (other.reason != null)

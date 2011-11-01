@@ -29,13 +29,13 @@ public class JAXBTests extends TestCase {
 	 * Tests if marshalling and unmarshalling an object results in the original object
 	 */
 	{
-		CreditRequest a = new CreditRequest(123, new Vector<Warrantor>(), 
+		Offer a = new Offer(150, "first offer", new InterestRate(0.5),  
+			new CreditRequest(123, new Vector<Warrantor>(), 
 				new Customer(100, "A", "B", "C", new BigDecimal(100), 
 						new Address("100", "Street", "City", "100A", "10/2", "1000"),
 						new BankTransfer("MyBank", "10000", "AAAA")),
-				new Offer(150, "first offer", new InterestRate(0.5), null), 
 				new Money("EUR", 1000), 
-				new Duration(100), "test");
+				new Duration(100), "test"));
 		
 		JAXBContext context = JAXBContext.newInstance(CreditRequest.class);
 		Marshaller m = context.createMarshaller();
@@ -44,7 +44,7 @@ public class JAXBTests extends TestCase {
 		m.marshal(a, sw);
 		
 		Unmarshaller u = context.createUnmarshaller();
-		CreditRequest b = (CreditRequest)u.unmarshal(new StringReader(sw.toString()));
+		Offer b = (Offer)u.unmarshal(new StringReader(sw.toString()));
 
 		assertEquals(a, b);
 	}

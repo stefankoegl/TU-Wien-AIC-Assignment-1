@@ -55,7 +55,6 @@ public class Offer {
 		this.interestRate = interestRate;
 	}
 	
-	@XmlTransient
 	public CreditRequest getRequest() {
 	    return request;
 	}
