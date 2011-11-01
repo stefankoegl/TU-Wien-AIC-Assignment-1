@@ -68,7 +68,6 @@ def request_to_dict(request):
     dic['currency'] = request.amount.currency_code
     dic['customer'] = customer_to_dict(request.customer)
     dic['duration'] = request.duration.years
-    dic['offer'] = offer_to_dict(request.offer)
     dic['reason'] = request.reason
     dic['warrantors'] = map(customer_to_dict, request.warrantors)
     return dic
@@ -82,7 +81,6 @@ def request_from_dict(dic):
     request.amount.currency_code = dic['currency']
     request.customer = customer_from_dict(dic['customer'])
     request.duration.years = dic['duration']
-    request.offer = offer_from_dict(dic['offer'])
     request.reason = dic['reason']
     request.warrantors = map(customer_from_dict, dic['warrantors'])
     return request
@@ -94,6 +92,7 @@ def offer_to_dict(offer):
     dic['id'] = offer._offer_id
     dic['comments'] = offer.comments
     dic['rate'] = offer.interest_rate.rate
+    dic['request'] = request_to_dict(offer.request)
     return dic
 
 
@@ -103,12 +102,16 @@ def offer_from_dict(dic):
     offer._offer_id = dic['id']
     offer.comments = dic['comments']
     offer.interest_rate.rate = dic['rate']
+    offer.request = request_from_dict(dic['request'])
     return offer
 
 
 
 def set_customer(request, customer):
-    request.session['customer'] = customer_to_dict(customer)
+    if customer:
+        request.session['customer'] = customer_to_dict(customer)
+    else:
+        request.session['customer'] = None
 
 
 def get_customer(request):
@@ -116,13 +119,21 @@ def get_customer(request):
 
 
 def set_request(request, credit_req):
-    request.session['request'] = request_to_dict(credit_req)
+    if credit_req:
+        request.session['request'] = request_to_dict(credit_req)
+    else:
+        request.session['request'] = None
+
 
 def get_request(request):
     return request_from_dict(request.session['request'])
 
 def set_offer(request, offer):
-    request.session['offer'] = offer_to_dict(offer)
+    if offer:
+        request.session['offer'] = offer_to_dict(offer)
+    else:
+        request.session['offer'] = None
+
 
 def get_offer(request):
     return offer_from_dict(request.session['offer'])
