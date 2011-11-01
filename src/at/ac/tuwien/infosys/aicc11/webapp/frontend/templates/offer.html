@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Offer</h2>
+
+ <table>
+  <tr>
+   <th>Id</th>
+   <td>{{ id }}</td>
+  </tr>
+  <tr>
+   <th>Comments</th>
+   <td>{{ offer.comments }}</td>
+  </tr>
+  <tr>
+   <th>Interest Rate</th>
+   <td>{{ offer.interest_rate.rate }}</td>
+  </tr>
+ </table>
+
+ <a href="/accept-offer">Accept</a> -
+ <a href="/update-request">Update Request</a> -
+ <a href="/decline-offer">Decline</a>
+
+{% endblock %}

@@ -9,7 +9,7 @@ Dependencies:
 
 cd into this directory: src/at/ac/tuwien/infosys/aicc11/webapp
 
-Run
+To start the webserver, run
 
  ./manage runserver
 

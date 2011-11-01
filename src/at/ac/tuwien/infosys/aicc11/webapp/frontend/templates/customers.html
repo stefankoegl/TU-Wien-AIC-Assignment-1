@@ -6,7 +6,7 @@
 <p>Searched for {{ name }},
 found
 {% if customer %}
- <a href="next-step">{{ customer.first_name }} {{ customer.middle_name }} {{ customer.last_name }}</a>
+ <a href="/enter-request">{{ customer.first_name }} {{ customer.middle_name }} {{ customer.last_name }}</a>
 {% else %}
  nothing
 {% endif %}

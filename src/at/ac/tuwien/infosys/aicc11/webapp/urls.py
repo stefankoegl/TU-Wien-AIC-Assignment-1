@@ -4,10 +4,19 @@ from django.conf.urls.defaults import patterns, include, url
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('webapp.frontend.views',
     # Examples:
-    url(r'^$', 'webapp.frontend.views.index', name='index'),
-    url(r'^customers$', 'webapp.frontend.views.customers', name='customers'),
+    url(r'^$',                  'index', name='index'),
+    url(r'^customers$',         'customers', name='customers'),
+    url(r'^enter-request$',     'enter_request'),
+    url(r'^create-request$',    'create_request'),
+    url(r'^show-warrantor$',    'show_warrantor'),
+    url(r'^add-warrantor$',     'add_warrantor'),
+
+    url(r'^submit-request$',    'submit_request'),
+    url(r'^accept-offer$',      'accept_offer'),
+    url(r'^decline-offer$',     'decline_offer'),
+
     # url(r'^creditapprovalwebapp/', include('creditapprovalwebapp.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

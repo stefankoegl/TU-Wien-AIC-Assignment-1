@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Select Customer</h2>
+<h2>Search Warrantors</h2>
 
-<form method="post" action="/customers">
+<form method="post" action="/show-warrantor">
  {% csrf_token %}
  Name: <input type="text" name="name">
  <input type="submit" value="Search" />
 </form>
+
+ <a href="/submit-request">Submit Request</a>
+
 {% endblock %}

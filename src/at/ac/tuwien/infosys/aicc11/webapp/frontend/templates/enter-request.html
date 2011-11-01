@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Enter Credit Request</h2>
+
+<form method="post" action="/create-request">
+ {% csrf_token %}
+
+ <table>
+  <tr>
+   <th>Reason</th>
+   <td><input type="text" name="reason"></td>
+  </tr>
+  <tr>
+   <th>Amount</th>
+   <td><input type="text" name="amount"></td>
+  </tr>
+  <tr>
+   <th>Currency</th>
+   <td><input type="text" name="currency"></td>
+  </tr>
+  <tr>
+   <th>Duration</th>
+   <td><input type="text" name="duration" /> Years</td>
+  </tr>
+  <tr>
+   <td colspan="2">
+    <input type="submit" value="Continue" />
+   </td>
+  </tr>
+ </table>
+
+{% endblock %}

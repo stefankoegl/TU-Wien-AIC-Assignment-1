@@ -11,7 +11,7 @@ contract_client = Client(settings.WSDLS.get("contracts"))
 
 def getCustomerByID(customerId):
     return customer_client.service.getCustomerByID(customerId)
-    
+
 def getCustomerByName(name):
     return customer_client.service.getCustomerByName(name)
 
@@ -25,12 +25,12 @@ def acceptOffer(offer):
     #TODO: also call shipping
     #TODO: do things in parallel
     request = offer.credit_request
-    disbursementclient.startDisbursement(request.money, request.customer)
+    disbursementclient.startDisbursement(request.amount, request.customer)
     return contract_client.service.acceptOffer(offer)
-    
+
 def declineOffer(offer):
     return contract_client.service.declineOffer(offer)
-    
+
 #wrapping of Factory methods to make things easier
 def createCreditRequest():
     return contract_client.factory.create("credit_request")

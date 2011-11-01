@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Customers</h2>
+
+<p>Searched for "{{ name }}",
+found
+{% if warrantor %}
+ {{ warrantor.first_name }} {{ warrantor.middle_name }} {{ warrantor.last_name }}
+ <a href="/add-warrantor?id={{ id }}">Add Warrantor</a>
+{% else %}
+ nothing
+{% endif %}
+{% endblock %}
