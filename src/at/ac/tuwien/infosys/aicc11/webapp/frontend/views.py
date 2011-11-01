@@ -6,6 +6,11 @@ from webapp.frontend import sessionstore
 
 
 def index(request):
+
+    sessionstore.set_customer(request, None)
+    sessionstore.set_offer(request, None)
+    sessionstore.set_request(request, None)
+
     return render_to_response('index.html', {
         }, context_instance=RequestContext(request))
 
