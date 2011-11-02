@@ -2,13 +2,13 @@ package at.ac.tuwien.infosys.aicc11.client;
 
 import java.util.Vector;
 
-import at.ac.tuwien.infosys.aicc11.CreditRequest;
-import at.ac.tuwien.infosys.aicc11.Offer;
-import at.ac.tuwien.infosys.aicc11.Ratings;
+import at.ac.tuwien.infosys.aic11.CreditRequest;
+import at.ac.tuwien.infosys.aic11.Offer;
+import at.ac.tuwien.infosys.aic11.Ratings;
+import at.ac.tuwien.infosys.aic11.Warrantor;
 import at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl;
 import at.ac.tuwien.infosys.aicc11.services.Rating;
 import at.ac.tuwien.infosys.aicc11.services.RatingImpl;
-import at.ac.tuwien.infosys.aicc11.Warrantor;
 import at.ac.tuwien.infosys.aicc11.services.ContractManagement;
 
 /* The following code should just illustrate the workflow

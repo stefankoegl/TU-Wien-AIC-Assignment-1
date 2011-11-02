@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11;
+package at.ac.tuwien.infosys.aic11;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,7 +13,7 @@ public class Offer {
 	
 	public Offer()
 	{
-		this(0, "", new InterestRate(), null);
+		this(0, "", new InterestRate(), new CreditRequest());
 	}
 	
 	public Offer(long offerId, String comments, InterestRate interestRate, CreditRequest request) {

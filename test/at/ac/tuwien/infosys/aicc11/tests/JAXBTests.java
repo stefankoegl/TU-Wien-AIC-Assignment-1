@@ -10,15 +10,15 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import at.ac.tuwien.infosys.aicc11.Address;
-import at.ac.tuwien.infosys.aicc11.BankTransfer;
-import at.ac.tuwien.infosys.aicc11.CreditRequest;
-import at.ac.tuwien.infosys.aicc11.Customer;
-import at.ac.tuwien.infosys.aicc11.Duration;
-import at.ac.tuwien.infosys.aicc11.InterestRate;
-import at.ac.tuwien.infosys.aicc11.Money;
-import at.ac.tuwien.infosys.aicc11.Offer;
-import at.ac.tuwien.infosys.aicc11.Warrantor;
+import at.ac.tuwien.infosys.aic11.Address;
+import at.ac.tuwien.infosys.aic11.BankTransfer;
+import at.ac.tuwien.infosys.aic11.CreditRequest;
+import at.ac.tuwien.infosys.aic11.Customer;
+import at.ac.tuwien.infosys.aic11.Duration;
+import at.ac.tuwien.infosys.aic11.InterestRate;
+import at.ac.tuwien.infosys.aic11.Money;
+import at.ac.tuwien.infosys.aic11.Offer;
+import at.ac.tuwien.infosys.aic11.Warrantor;
 import junit.framework.TestCase;
 
 public class JAXBTests extends TestCase {

@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Hashtable;
 import java.util.Map;
 
-import at.ac.tuwien.infosys.aicc11.Address;
-import at.ac.tuwien.infosys.aicc11.BankTransfer;
-import at.ac.tuwien.infosys.aicc11.Cheque;
-import at.ac.tuwien.infosys.aicc11.Customer;
-import at.ac.tuwien.infosys.aicc11.Ratings;
+import at.ac.tuwien.infosys.aic11.Address;
+import at.ac.tuwien.infosys.aic11.BankTransfer;
+import at.ac.tuwien.infosys.aic11.Cheque;
+import at.ac.tuwien.infosys.aic11.Customer;
+import at.ac.tuwien.infosys.aic11.Ratings;
 
 /**
  * I assume that we don't need to create new customers, just use existing ones

@@ -5,7 +5,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.impl.ResponseBuilderImpl;
 
-import at.ac.tuwien.infosys.aicc11.Ratings;
+import at.ac.tuwien.infosys.aic11.Ratings;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyCustomerRelationsManagement;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
 

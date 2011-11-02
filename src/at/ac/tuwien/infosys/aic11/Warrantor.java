@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11;
+package at.ac.tuwien.infosys.aic11;
 
 import java.math.BigDecimal;
 
