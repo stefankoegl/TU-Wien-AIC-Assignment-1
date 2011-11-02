@@ -1,6 +1,6 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-import at.ac.tuwien.infosys.aic11.Customer;
+import at.ac.tuwien.infosys.aic11.dto.Customer;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyCustomerRelationsManagement;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
 

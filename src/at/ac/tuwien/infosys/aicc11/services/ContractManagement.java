@@ -3,8 +3,8 @@ package at.ac.tuwien.infosys.aicc11.services;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import at.ac.tuwien.infosys.aic11.CreditRequest;
-import at.ac.tuwien.infosys.aic11.Offer;
+import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
+import at.ac.tuwien.infosys.aic11.dto.Offer;
 
 @WebService(name="ContractManagementService",
 targetNamespace="at.ac.tuwien.infosys.aic11.services")

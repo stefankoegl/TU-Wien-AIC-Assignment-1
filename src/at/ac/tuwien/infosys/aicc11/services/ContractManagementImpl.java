@@ -1,7 +1,7 @@
 package at.ac.tuwien.infosys.aicc11.services;
 
-import at.ac.tuwien.infosys.aic11.CreditRequest;
-import at.ac.tuwien.infosys.aic11.Offer;
+import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
+import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
 import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
 

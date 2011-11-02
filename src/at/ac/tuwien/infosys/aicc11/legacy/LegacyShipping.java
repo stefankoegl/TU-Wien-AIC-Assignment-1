@@ -2,7 +2,7 @@ package at.ac.tuwien.infosys.aicc11.legacy;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-import at.ac.tuwien.infosys.aic11.CreditRequest;
+import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
 
 public class LegacyShipping {
 	

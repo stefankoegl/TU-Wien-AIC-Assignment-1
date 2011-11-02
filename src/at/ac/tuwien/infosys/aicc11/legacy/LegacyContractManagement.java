@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-import at.ac.tuwien.infosys.aic11.CreditRequest;
-import at.ac.tuwien.infosys.aic11.DisbursementPreference;
-import at.ac.tuwien.infosys.aic11.InterestRate;
-import at.ac.tuwien.infosys.aic11.Offer;
-import at.ac.tuwien.infosys.aic11.Ratings;
-import at.ac.tuwien.infosys.aic11.Warrantor;
+import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
+import at.ac.tuwien.infosys.aic11.dto.DisbursementPreference;
+import at.ac.tuwien.infosys.aic11.dto.InterestRate;
+import at.ac.tuwien.infosys.aic11.dto.Offer;
+import at.ac.tuwien.infosys.aic11.dto.Ratings;
+import at.ac.tuwien.infosys.aic11.dto.Warrantor;
 
 public class LegacyContractManagement 
 {

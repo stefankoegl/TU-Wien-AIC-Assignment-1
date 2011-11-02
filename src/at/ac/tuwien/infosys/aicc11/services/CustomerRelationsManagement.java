@@ -3,7 +3,7 @@ package at.ac.tuwien.infosys.aicc11.services;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import at.ac.tuwien.infosys.aic11.Customer;
+import at.ac.tuwien.infosys.aic11.dto.Customer;
 
 @WebService(name="CustomerRelationsManagementService",
 targetNamespace="at.ac.tuwien.infosys.aic11.services")

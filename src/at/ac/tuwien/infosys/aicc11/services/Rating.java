@@ -6,7 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-import at.ac.tuwien.infosys.aic11.Ratings;
+import at.ac.tuwien.infosys.aic11.dto.Ratings;
 
 @Path("/rating/")
 @Produces("application/json")
