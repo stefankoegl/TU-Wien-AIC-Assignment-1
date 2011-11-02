@@ -1,4 +1,6 @@
 from suds.client import Client
+from suds.wsse import Security
+from suds.wsse import UsernameToken
 from webapp import settings
 
 import disbursementclient
@@ -6,6 +8,11 @@ import disbursementclient
 customer_client = Client(settings.WSDLS.get("customers"))
 shipping_client = Client(settings.WSDLS.get("shipping"))
 contract_client = Client(settings.WSDLS.get("contracts"))
+
+security = Security()
+token = UsernameToken('aic11', 'supersecret')
+security.tokens.append(token)
+contract_client.set_options(wsse=security)
 
 #TODO: better error handling (if no result, throw an exception??)
 
