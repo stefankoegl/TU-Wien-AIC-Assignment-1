@@ -50,7 +50,6 @@ public class LegacyContractManagement
 		long requestId = nextRequestId++;
 		creditRequest.setRequestId(requestId);
 		Offer offer = createOffer(creditRequest);
-		offer.setRequest(creditRequest);
 		
 		requests.put(requestId, creditRequest);
 		

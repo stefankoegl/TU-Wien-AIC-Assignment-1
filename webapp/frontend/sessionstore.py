@@ -15,7 +15,7 @@ def customer_to_dict(customer):
     dic['middle_name'] = customer.middle_name
     dic['open_balance'] = customer.open_balance
     if customer.rating:
-        dic['rating'] = customer.rating.value
+        dic['rating'] = customer.rating
     else:
         dic['rating'] = None
 
@@ -44,7 +44,7 @@ def customer_from_dict(dic):
     customer.last_name = dic.get('last_name', None)
     customer.middle_name = dic.get('middle_name', None)
     customer.open_balance = dic.get('open_balance', None)
-    customer.rating.value = dic.get('rating', None)
+    customer.rating = dic.get('rating', None)
 
     if dic['disbursement_pref'] == 'cheque':
         customer.disbursement_preference = \
@@ -98,7 +98,7 @@ def offer_to_dict(offer):
 
 
 def offer_from_dict(dic):
-    offer = customer_client.factory.create('offer')
+    offer = contract_client.factory.create('offer')
     offer._offer_id = dic['id']
     offer.comments = dic['comments']
     offer.interest_rate.rate = dic['rate']

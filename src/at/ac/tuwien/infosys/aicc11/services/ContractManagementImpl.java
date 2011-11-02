@@ -40,7 +40,9 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	public Offer placeCreditRequest(CreditRequest creditRequest) 
 	{		
 		entering("placeCreditRequest", new Object[]{creditRequest});
-		Offer offer = new Offer();
+		
+		Offer offer = null;
+		
 		try {
 			offer = legacyContractManagement.createCreditRequest(creditRequest);
 		} catch (LegacyException e) {

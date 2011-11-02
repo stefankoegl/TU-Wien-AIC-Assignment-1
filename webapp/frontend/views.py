@@ -66,6 +66,7 @@ def add_warrantor(request):
     warrantor = creditapprovalclient.getCustomerByID(int(request.GET['id']))
 
     credit_req.warrantors.append(warrantor)
+    sessionstore.set_request(request, credit_req)
 
     return render_to_response('search-warrantors.html', {
             'credit_request': credit_req,
@@ -109,9 +110,11 @@ def decline_offer(request):
     offer = sessionstore.get_offer(request)
     credit_req = sessionstore.get_request(request)
 
-    offer.credit_request = credit_req
+    offer.request = credit_req
 
     x = creditapprovalclient.declineOffer(offer)
 
-    print x
-
+    return render_to_response('offer-declined.html', {
+            'id': offer._offer_id,
+            'offer': offer,
+        }, context_instance=RequestContext(request))
