@@ -11,11 +11,13 @@ urlpatterns = patterns('webapp.frontend.views',
     url(r'^enter-request$',     'enter_request'),
     url(r'^create-request$',    'create_request'),
     url(r'^show-warrantor$',    'show_warrantor'),
-    url(r'^add-warrantor$',     'add_warrantor'),
 
     url(r'^submit-request$',    'submit_request'),
     url(r'^accept-offer$',      'accept_offer'),
     url(r'^decline-offer$',     'decline_offer'),
+
+    url(r'^edit-request$',      'edit_request'),
+    url(r'^update-request$',    'update_request'),
 
     # url(r'^creditapprovalwebapp/', include('creditapprovalwebapp.foo.urls')),
 

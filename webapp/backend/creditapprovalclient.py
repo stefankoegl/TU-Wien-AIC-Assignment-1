@@ -31,9 +31,10 @@ def updateCreditRequest(request):
 def acceptOffer(offer):
     #TODO: also call shipping
     #TODO: do things in parallel
-    request = offer.credit_request
-    disbursementclient.startDisbursement(request.amount, request.customer)
-    return contract_client.service.acceptOffer(offer)
+    request = offer.request
+    disbursement_resp = disbursementclient.startDisbursement(request.amount, request.customer)
+    contract_client.service.acceptOffer(offer)
+    return disbursement_resp
 
 def declineOffer(offer):
     return contract_client.service.declineOffer(offer)

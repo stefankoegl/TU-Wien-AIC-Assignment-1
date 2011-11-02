@@ -3,25 +3,25 @@
 {% block content %}
 <h2>Enter Credit Request</h2>
 
-<form method="post" action="/create-request">
+<form method="post" action="/{{ target }}">
  {% csrf_token %}
 
  <table>
   <tr>
    <th>Reason</th>
-   <td><input type="text" name="reason"></td>
+   <td><input type="text" name="reason" value="{{ credit_request.reason }}"></td>
   </tr>
   <tr>
    <th>Amount</th>
-   <td><input type="text" name="amount"></td>
+   <td><input type="text" name="amount" value="{{ credit_request.amount.amount }}"></td>
   </tr>
   <tr>
    <th>Currency</th>
-   <td><input type="text" name="currency"></td>
+   <td><input type="text" name="currency" value="{{ credit_request.amount.currency_code }}"></td>
   </tr>
   <tr>
    <th>Duration</th>
-   <td><input type="text" name="duration" /> Years</td>
+   <td><input type="text" name="duration" value="{{ credit_request.duration.years }}"/> Years</td>
   </tr>
   <tr>
    <td colspan="2">

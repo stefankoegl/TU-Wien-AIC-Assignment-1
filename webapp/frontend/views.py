@@ -30,6 +30,7 @@ def customers(request):
 
 def enter_request(request):
     return render_to_response('enter-request.html', {
+            'target': 'create-request',
         }, context_instance=RequestContext(request))
 
 
@@ -51,21 +52,12 @@ def create_request(request):
 
 def show_warrantor(request):
     name = request.POST['name']
-    warrantor = creditapprovalclient.getCustomerByName(name)
-
-    return render_to_response('show-warrantor.html', {
-            'name': name,
-            'warrantor': warrantor,
-            'id': warrantor._customer_id,
-        }, context_instance=RequestContext(request))
-
-
-def add_warrantor(request):
 
     credit_req = sessionstore.get_request(request)
-    warrantor = creditapprovalclient.getCustomerByID(int(request.GET['id']))
 
-    credit_req.warrantors.append(warrantor)
+    warrantor = creditapprovalclient.getCustomerByName(name)
+    if warrantor:
+        credit_req.warrantors.append(warrantor)
     sessionstore.set_request(request, credit_req)
 
     return render_to_response('search-warrantors.html', {
@@ -97,12 +89,14 @@ def accept_offer(request):
     offer = sessionstore.get_offer(request)
     credit_req = sessionstore.get_request(request)
 
-    offer.credit_request = credit_req
+    offer.request = credit_req
 
-    x = creditapprovalclient.acceptOffer(offer)
+    creditapprovalclient.acceptOffer(offer)
 
-    print x
-
+    return render_to_response('offer-accepted.html', {
+            'id': offer._offer_id,
+            'offer': offer,
+        }, context_instance=RequestContext(request))
 
 
 def decline_offer(request):
@@ -115,6 +109,38 @@ def decline_offer(request):
     x = creditapprovalclient.declineOffer(offer)
 
     return render_to_response('offer-declined.html', {
+            'id': offer._offer_id,
+            'offer': offer,
+        }, context_instance=RequestContext(request))
+
+
+
+def edit_request(request):
+
+    offer = sessionstore.get_offer(request)
+    credit_req = offer.request
+
+    return render_to_response('enter-request.html', {
+            'credit_request': credit_req,
+            'target': 'update-request',
+        }, context_instance=RequestContext(request))
+
+
+def update_request(request):
+    credit_req = sessionstore.get_request(request)
+
+    credit_req.amount.amount = request.POST['amount']
+    credit_req.amount.currency_code = request.POST['currency']
+    credit_req.duration.years = request.POST['duration']
+    credit_req.reason = request.POST['reason']
+
+    sessionstore.set_request(request, credit_req)
+
+    offer = creditapprovalclient.placeCreditRequest(credit_req)
+
+    sessionstore.set_offer(request, offer)
+
+    return render_to_response('offer.html', {
             'id': offer._offer_id,
             'offer': offer,
         }, context_instance=RequestContext(request))

@@ -1,12 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Search Warrantors</h2>
+<h2>Enter Credit Request</h2>
 
 <form method="post" action="/show-warrantor">
  {% csrf_token %}
- Name: <input type="text" name="name">
- <input type="submit" value="Search" />
+ <table>
+  <tr>
+   <th>Reason</th>
+   <td>{{ credit_request.reason }}</td>
+  </tr>
+
+  <tr>
+   <th>Amount</th>
+   <td>{{ credit_request.amount.amount }}</td>
+  </tr>
+
+  <tr>
+   <th>Currency</th>
+   <td>{{ credit_request.amount.currency_code }}</td>
+  </tr>
+
+  <tr>
+   <th>Duration</th>
+   <td>{{ credit_request.duration.years}} Years</td>
+  </tr>
+
+  {% for warrantor in credit_request.warrantors %}
+   <tr>
+    <th>Warrantor</th>
+    <td>
+      {{ warrantor.first_name }}
+      {{ warrantor.middle_name }}
+      {{ warrantor.last_name }}
+    </td>
+   </tr>
+  {% endfor %}
+
+  <tr>
+   <th>Warrantor Name</th>
+   <td>
+    <input type="text" name="name" />
+    <input type="submit" value="Search" />
+   </td>
+  </tr>
+ </table>
 </form>
 
  <a href="/submit-request">Submit Request</a>
