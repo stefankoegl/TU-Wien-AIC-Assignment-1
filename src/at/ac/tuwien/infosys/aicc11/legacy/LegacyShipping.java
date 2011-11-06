@@ -1,10 +1,29 @@
 package at.ac.tuwien.infosys.aicc11.legacy;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
-import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
+import at.ac.tuwien.infosys.aic11.dto.Offer;
 
 public class LegacyShipping {
+    
+    	public class ReceiveFaxTask extends TimerTask {
+	    
+	    @Override
+	    public void run() {
+		for ( long offerID : sentFaxes.keySet() ) {
+		    if (sentFaxes.get(offerID) == false)
+			try {
+			    receivedFaxReply(offerID);
+			} catch (LegacyException e) {
+			    //should never happen
+			}
+		}
+		
+	    }
+	    
+	}
 	
     	private static LegacyShipping instance;
     	
@@ -15,15 +34,17 @@ public class LegacyShipping {
     	}
     	
     	private LegacyShipping() {
+    	    Timer faxTimer = new Timer();
+    	    faxTimer.schedule(new ReceiveFaxTask(), 0, 3500);
     	}
     
 	/* Key: requestId, value: true if fax reply has already been received */
 	private ConcurrentHashMap<Long, Boolean> sentFaxes = new ConcurrentHashMap<Long, Boolean>();
 	
-	public synchronized void sendFax(CreditRequest creditRequest)
+	public synchronized void sendFax(Offer offer)
 	throws LegacyException
 	{
-		long requestId = creditRequest.getRequestId();
+		long requestId = offer.getOfferId();
 		
 		if(sentFaxes.containsKey(requestId))
 		{
@@ -34,21 +55,26 @@ public class LegacyShipping {
 	}
 	
 	
-	public synchronized void receivedFaxReply(Long requestId)
+	public synchronized void receivedFaxReply(Long offerId)
 	throws LegacyException
 	{
-		if(!sentFaxes.containsKey(requestId))
+		if(!sentFaxes.containsKey(offerId))
 		{
-			throw new LegacyException("fax for Id " + requestId + " has not been sent");
+			throw new LegacyException("fax for Id " + offerId + " has not been sent");
 		}
 		
-		if(sentFaxes.get(requestId) == true)
+		if(sentFaxes.get(offerId) == true)
 		{
-			throw new LegacyException("fax for Id " + requestId + " has already been received");
+			throw new LegacyException("fax for Id " + offerId + " has already been received");
 		}
 		
-		sentFaxes.put(requestId, true);
+		sentFaxes.put(offerId, true);
 		
 		//TODO: trigger some callback
+	}
+	
+	//use this via polling
+	public synchronized boolean receivedFaxReply(Offer offer) {
+	    return sentFaxes.get(offer.getOfferId());
 	}
 }
