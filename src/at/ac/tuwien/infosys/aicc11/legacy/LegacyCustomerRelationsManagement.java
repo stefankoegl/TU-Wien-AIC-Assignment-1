@@ -29,7 +29,7 @@ public class LegacyCustomerRelationsManagement {
 	
 	private LegacyCustomerRelationsManagement()
 	{		
-		customers.put(1L, new Customer(1, "Stefan", "A.", "Kögl", new BigDecimal(10000), new Address("1", "Street", "City", "5", "1", "1234"), new Cheque("Stefan Kögl")));
+		customers.put(1L, new Customer(1, "Stefan", "A.", "Koegl", new BigDecimal(10000), new Address("1", "Street", "City", "5", "1", "1234"), new Cheque("Stefan Kögl")));
 		customers.put(2L, new Customer(2, "Stefan", "B.", "Derkits", new BigDecimal(10000), new Address("1", "Street", "City", "5", "1", "1234"), new BankTransfer("MyBank", "12345", "ABCA234234")));
 		customers.put(3L, new Customer(3, "Felix",  "C.", "Winter", new BigDecimal(10000), new Address("1", "Street", "City", "5", "1", "1234"), new Cheque("Felix Winter")));
 		customers.put(4L, new Customer(4, "Manfred", "M.", "Mustermann", new BigDecimal(10000), new Address("1", "Street", "City", "5", "1", "1234"), new BankTransfer("Some Bank", "asdfasdf", "123123asdfasdf")));
@@ -47,7 +47,7 @@ public class LegacyCustomerRelationsManagement {
 	{
 		for(Customer customer : customers.values())
 		{
-			String fullname = customer.getFirstName() + customer.getMiddleName() + customer.getLastName();
+			String fullname = customer.getFirstName() + " " + customer.getMiddleName() + " " + customer.getLastName();
 			
 			if(fullname.contains(name))
 			{
