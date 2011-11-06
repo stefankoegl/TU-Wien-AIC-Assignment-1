@@ -39,6 +39,12 @@ def acceptOffer(offer):
 def declineOffer(offer):
     return contract_client.service.declineOffer(offer)
 
+def shipContract(offer):
+    return shipping_client.sendContractFax(offer)
+
+def contractSigned(offer):
+    return shipping_client.contractSigned(offer)
+
 #wrapping of Factory methods to make things easier
 def createCreditRequest():
     return contract_client.factory.create("creditRequest")
