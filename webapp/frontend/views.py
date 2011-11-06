@@ -4,6 +4,9 @@ from django.template import RequestContext
 from webapp.backend import creditapprovalclient, ratingclient
 from webapp.frontend import sessionstore
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.getLogger('suds.transport').setLevel(logging.DEBUG)
 
 def index(request):
 
