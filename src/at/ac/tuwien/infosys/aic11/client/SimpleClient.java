@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.client;
+package at.ac.tuwien.infosys.aic11.client;
 
 import java.util.Vector;
 
@@ -6,10 +6,10 @@ import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
 import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aic11.dto.Ratings;
 import at.ac.tuwien.infosys.aic11.dto.Warrantor;
-import at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl;
-import at.ac.tuwien.infosys.aicc11.services.Rating;
-import at.ac.tuwien.infosys.aicc11.services.RatingImpl;
-import at.ac.tuwien.infosys.aicc11.services.ContractManagement;
+import at.ac.tuwien.infosys.aic11.services.ContractManagement;
+import at.ac.tuwien.infosys.aic11.services.ContractManagementImpl;
+import at.ac.tuwien.infosys.aic11.services.Rating;
+import at.ac.tuwien.infosys.aic11.services.RatingImpl;
 
 /* The following code should just illustrate the workflow
  * and is not a working client!

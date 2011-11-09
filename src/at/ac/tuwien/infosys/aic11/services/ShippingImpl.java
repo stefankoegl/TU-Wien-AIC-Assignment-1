@@ -1,12 +1,12 @@
-package at.ac.tuwien.infosys.aicc11.services;
+package at.ac.tuwien.infosys.aic11.services;
 
 
 
 import org.apache.cxf.binding.soap.SoapFault;
 
 import at.ac.tuwien.infosys.aic11.dto.Offer;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyShipping;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyShipping;
 
 public class ShippingImpl extends BaseServiceImpl implements Shipping {
     

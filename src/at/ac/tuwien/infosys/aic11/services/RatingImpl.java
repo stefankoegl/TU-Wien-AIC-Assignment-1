@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.services;
+package at.ac.tuwien.infosys.aic11.services;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -6,8 +6,8 @@ import javax.ws.rs.core.Response;
 import org.apache.cxf.jaxrs.impl.ResponseBuilderImpl;
 
 import at.ac.tuwien.infosys.aic11.dto.Ratings;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyCustomerRelationsManagement;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyCustomerRelationsManagement;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 
 public class RatingImpl extends BaseServiceImpl implements Rating 
 {

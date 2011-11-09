@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.legacy;
+package at.ac.tuwien.infosys.aic11.legacy;
 
 import java.math.BigDecimal;
 import java.util.Hashtable;

@@ -1,8 +1,8 @@
-package at.ac.tuwien.infosys.aicc11.services;
+package at.ac.tuwien.infosys.aic11.services;
 
 import at.ac.tuwien.infosys.aic11.dto.Customer;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyCustomerRelationsManagement;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyCustomerRelationsManagement;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 
 public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 		CustomerRelationsManagement {

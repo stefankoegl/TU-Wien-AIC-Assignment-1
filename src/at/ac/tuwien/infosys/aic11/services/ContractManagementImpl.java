@@ -1,9 +1,9 @@
-package at.ac.tuwien.infosys.aicc11.services;
+package at.ac.tuwien.infosys.aic11.services;
 
 import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
 import at.ac.tuwien.infosys.aic11.dto.Offer;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyContractManagement;
-import at.ac.tuwien.infosys.aicc11.legacy.LegacyException;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyContractManagement;
+import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 

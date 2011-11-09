@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.server;
+package at.ac.tuwien.infosys.aic11.server;
 
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
@@ -10,13 +10,13 @@ import org.apache.ws.security.handler.WSHandlerConstants;
 
 import java.util.HashMap;
 
-import at.ac.tuwien.infosys.aicc11.services.ContractManagement;
-import at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl;
-import at.ac.tuwien.infosys.aicc11.services.CustomerRelationsManagement;
-import at.ac.tuwien.infosys.aicc11.services.CustomerRelationsManagementImpl;
-import at.ac.tuwien.infosys.aicc11.services.RatingImpl;
-import at.ac.tuwien.infosys.aicc11.services.Shipping;
-import at.ac.tuwien.infosys.aicc11.services.ShippingImpl;
+import at.ac.tuwien.infosys.aic11.services.ContractManagement;
+import at.ac.tuwien.infosys.aic11.services.ContractManagementImpl;
+import at.ac.tuwien.infosys.aic11.services.CustomerRelationsManagement;
+import at.ac.tuwien.infosys.aic11.services.CustomerRelationsManagementImpl;
+import at.ac.tuwien.infosys.aic11.services.RatingImpl;
+import at.ac.tuwien.infosys.aic11.services.Shipping;
+import at.ac.tuwien.infosys.aic11.services.ShippingImpl;
 
 public class Server 
 {

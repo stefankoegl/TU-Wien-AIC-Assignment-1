@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.server;
+package at.ac.tuwien.infosys.aic11.server;
 
 import java.io.IOException;
 

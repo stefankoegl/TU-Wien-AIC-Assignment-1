@@ -1,4 +1,4 @@
-package at.ac.tuwien.infosys.aicc11.services;
+package at.ac.tuwien.infosys.aic11.services;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
