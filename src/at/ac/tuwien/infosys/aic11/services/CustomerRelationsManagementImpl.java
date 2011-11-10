@@ -1,5 +1,9 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import javax.xml.namespace.QName;
+
+import org.apache.cxf.binding.soap.SoapFault;
+
 import at.ac.tuwien.infosys.aic11.dto.Customer;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyCustomerRelationsManagement;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
@@ -15,7 +19,8 @@ public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 		try {
 			customer = legacyCustomerRelationsManagement.getCustomerByName(name);
 		} catch (LegacyException e) {
-			System.out.println(e.getMessage());
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			throw fault;
 		}
 		return customer;
 	}
@@ -26,7 +31,8 @@ public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 		try {
 			customer = legacyCustomerRelationsManagement.getCustomerByID(customerId);
 		} catch (LegacyException e) {
-			System.out.println(e.getMessage());
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			throw fault;
 		}
 		return customer;
 	}

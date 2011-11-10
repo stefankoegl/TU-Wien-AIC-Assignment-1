@@ -1,5 +1,9 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import javax.xml.namespace.QName;
+
+import org.apache.cxf.binding.soap.SoapFault;
+
 import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
 import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyContractManagement;
@@ -30,7 +34,8 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			legacyContractManagement.deleteOffer(offer);
 		} catch (LegacyException e) {
-			System.err.println(e.getMessage());
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			throw fault;
 		}
 		
 		exiting("declineOffer");
@@ -46,7 +51,8 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			offer = legacyContractManagement.createCreditRequest(creditRequest);
 		} catch (LegacyException e) {
-			System.err.println(e.getMessage());
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			throw fault;
 		}
 		
 		exiting("placeCreditRequest");
@@ -61,7 +67,8 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			offer = legacyContractManagement.updateCreditRequest(creditRequest);
 		} catch (LegacyException e) {
-			System.err.println(e.getMessage());
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			throw fault;
 		}
 
 		exiting("updateCreditRequest");
