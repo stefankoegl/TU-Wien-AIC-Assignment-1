@@ -23,13 +23,14 @@ public class Server
 	
 	public Server() 
 	{
+	    	/*
 	    	HashMap<String,Object> inProps= new HashMap<String,Object>();
 	    	inProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.USERNAME_TOKEN);
 	    	inProps.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
 	    	
 	    	inProps.put(WSHandlerConstants.PW_CALLBACK_CLASS,ServerPasswordHandler.class.getName());
 	    	
-	    	WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);
+	    	WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);*/
 	    	
 	    	/*
 	    	HashMap<String,Object> outProps= new HashMap<String,Object>();
@@ -42,8 +43,8 @@ public class Server
 		svrFactoryContract.setAddress("http://localhost:9000/contracts");
 		svrFactoryContract.setServiceBean(contractManagement);
 		org.apache.cxf.endpoint.Server contractSrv = svrFactoryContract.create();
-		org.apache.cxf.endpoint.Endpoint contractEndpoint = contractSrv.getEndpoint();
-		contractEndpoint.getInInterceptors().add(wssIn);
+		//org.apache.cxf.endpoint.Endpoint contractEndpoint = contractSrv.getEndpoint();
+		//contractEndpoint.getInInterceptors().add(wssIn);
 		//contractEndpoint.getOutInterceptors().add(wssOut);
 
 		
