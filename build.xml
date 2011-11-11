@@ -1,66 +1,166 @@
-<project name="AIC-Assignment1" default="compile" basedir=".">
-	<description>
-		<!-- Project Description -->
-	</description>
-
-	<!-- set global properties for this build -->
-	<property name="projectName" value="ProjectName"/>
-	<property name="src" location="src"/>
-	<property name="build" location="build"/>
-
-	<target name="init">
-		<!-- Create the time stamp -->
-		<tstamp/>
-		<!-- Create the build directory structure used by compile -->
-		<mkdir dir="${build}"/>
-	</target>
-
-	<target name="compile" depends="init"
-  	description="compile the source " >
-		<!-- Compile the java code from ${src} into ${build} -->
-		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
-			<classpath>
-				<fileset dir="lib">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>
-		</javac>
-	</target>
-
-
-	<target name="clean"
-    	description="clean up" >
-		<!-- Delete the ${build} directory tree -->
-		<delete dir="${build}"/>
-	</target>
-
-	<target name="run-CMService">
-		<java classname="at.ac.tuwien.infosys.aicc11.services.ContractManagementImpl">
-			<arg value="localhost"/>
-			<arg value="9000"/>
-			<classpath>
-				<dirset dir="${build}">
-					<include name="**"/>
-				</dirset>
-				<fileset dir="lib">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>
-		</java>
-	</target>
-	
-	<target name="run-CRMService">
-		<java classname="at.ac.tuwien.infosys.aicc11.services.CustomerRelationsManagementImpl">
-			<arg value="localhost"/>
-			<arg value="9001"/>
-			<classpath>
-				<dirset dir="${build}">
-					<include name="**"/>
-				</dirset>
-				<fileset dir="lib">
-					<include name="*.jar"/>
-				</fileset>
-			</classpath>
-		</java>
-	</target>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="AIC-Assignment1">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../usr/lib/eclipse"/>
+    <property name="junit.output.dir" value="junit"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="JUnit 3.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/dropins/jdt/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100/junit.jar"/>
+    </path>
+    <path id="AIC-Assignment1.classpath">
+        <pathelement location="bin"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+        <pathelement location="lib/antlr-2.7.7.jar"/>
+        <pathelement location="lib/aopalliance-1.0.jar"/>
+        <pathelement location="lib/asm-3.3.jar"/>
+        <pathelement location="lib/commons-collections-3.2.1.jar"/>
+        <pathelement location="lib/commons-lang-2.6.jar"/>
+        <pathelement location="lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="lib/cxf-2.4.3.jar"/>
+        <pathelement location="lib/cxf-manifest.jar"/>
+        <pathelement location="lib/cxf-xjc-boolean-2.4.0.jar"/>
+        <pathelement location="lib/cxf-xjc-bug671-2.4.0.jar"/>
+        <pathelement location="lib/cxf-xjc-dv-2.4.0.jar"/>
+        <pathelement location="lib/cxf-xjc-ts-2.4.0.jar"/>
+        <pathelement location="lib/FastInfoset-1.2.9.jar"/>
+        <pathelement location="lib/geronimo-activation_1.1_spec-1.1.jar"/>
+        <pathelement location="lib/geronimo-annotation_1.0_spec-1.1.1.jar"/>
+        <pathelement location="lib/geronimo-javamail_1.4_spec-1.7.1.jar"/>
+        <pathelement location="lib/geronimo-jaxws_2.2_spec-1.1.jar"/>
+        <pathelement location="lib/geronimo-jms_1.1_spec-1.1.1.jar"/>
+        <pathelement location="lib/geronimo-servlet_2.5_spec-1.1.2.jar"/>
+        <pathelement location="lib/geronimo-stax-api_1.0_spec-1.0.1.jar"/>
+        <pathelement location="lib/geronimo-ws-metadata_2.0_spec-1.1.3.jar"/>
+        <pathelement location="lib/isorelax-20030108.jar"/>
+        <pathelement location="lib/jaxb-api-2.2.3.jar"/>
+        <pathelement location="lib/jaxb-impl-2.2.4-1.jar"/>
+        <pathelement location="lib/jaxb-xjc-2.2.4-1.jar"/>
+        <pathelement location="lib/jettison-1.3.jar"/>
+        <pathelement location="lib/jetty-continuation-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/jetty-http-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/jetty-io-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/jetty-security-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/jetty-server-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/jetty-util-7.4.5.v20110725.jar"/>
+        <pathelement location="lib/joda-time-1.6.2.jar"/>
+        <pathelement location="lib/jra-1.0-alpha-4.jar"/>
+        <pathelement location="lib/js-1.7R2.jar"/>
+        <pathelement location="lib/jsr311-api-1.1.1.jar"/>
+        <pathelement location="lib/mimepull-1.4.jar"/>
+        <pathelement location="lib/msv-core-2011.1.jar"/>
+        <pathelement location="lib/neethi-3.0.1.jar"/>
+        <pathelement location="lib/opensaml-2.5.1-1.jar"/>
+        <pathelement location="lib/openws-1.4.2-1.jar"/>
+        <pathelement location="lib/relaxngDatatype-20020414.jar"/>
+        <pathelement location="lib/saaj-api-1.3.4.jar"/>
+        <pathelement location="lib/saaj-impl-1.3.12.jar"/>
+        <pathelement location="lib/serializer-2.7.1.jar"/>
+        <pathelement location="lib/slf4j-api-1.6.2.jar"/>
+        <pathelement location="lib/slf4j-jdk14-1.6.2.jar"/>
+        <pathelement location="lib/spring-aop-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-asm-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-beans-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-context-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-core-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-expression-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-jms-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-tx-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/spring-web-3.0.6.RELEASE.jar"/>
+        <pathelement location="lib/stax2-api-3.1.1.jar"/>
+        <pathelement location="lib/velocity-1.7.jar"/>
+        <pathelement location="lib/woodstox-core-asl-4.1.1.jar"/>
+        <pathelement location="lib/wsdl4j-1.6.2.jar"/>
+        <pathelement location="lib/wss4j-1.6.3.jar"/>
+        <pathelement location="lib/xalan-2.7.1.jar"/>
+        <pathelement location="lib/xmlbeans-2.4.0.jar"/>
+        <pathelement location="lib/xml-resolver-1.2.jar"/>
+        <pathelement location="lib/xmlschema-core-2.0.1.jar"/>
+        <pathelement location="lib/xmlsec-1.4.5.jar"/>
+        <pathelement location="lib/xmltooling-1.3.2-1.jar"/>
+        <pathelement location="lib/xsdlib-2010.1.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="test">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="test"/>
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="JAXBTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="at.ac.tuwien.infosys.aicc11.tests.JAXBTests" todir="${junit.output.dir}"/>
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </junit>
+    </target>
+    <target name="Server">
+        <java classname="at.ac.tuwien.infosys.aic11.server.Server" failonerror="true" fork="yes">
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </java>
+    </target>
+    <target name="SimpleClient">
+        <java classname="at.ac.tuwien.infosys.aic11.client.SimpleClient" failonerror="true" fork="yes">
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </java>
+    </target>
+    <target name="SoapServer">
+        <java classname="at.ac.tuwien.infosys.aic11.server.SoapServer" failonerror="true" fork="yes">
+            <classpath refid="AIC-Assignment1.classpath"/>
+        </java>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
+    </target>
 </project>
