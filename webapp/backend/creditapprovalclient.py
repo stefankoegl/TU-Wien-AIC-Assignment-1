@@ -34,16 +34,17 @@ def acceptOffer(offer):
     request = offer.request
     disbursement_resp = disbursementclient.startDisbursement(request.amount, request.customer)
     contract_client.service.acceptOffer(offer)
+    shipContract(offer)
     return disbursement_resp
 
 def declineOffer(offer):
     return contract_client.service.declineOffer(offer)
 
 def shipContract(offer):
-    return shipping_client.sendContractFax(offer)
+    return shipping_client.service.sendContractFax(offer)
 
 def contractSigned(offer):
-    return shipping_client.contractSigned(offer)
+    return shipping_client.service.contractSigned(offer)
 
 #wrapping of Factory methods to make things easier
 def createCreditRequest():

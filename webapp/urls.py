@@ -7,7 +7,6 @@ from django.conf.urls.defaults import patterns, include, url
 urlpatterns = patterns('webapp.frontend.views',
     # Examples:
     url(r'^$',                  'index', name='index'),
-    url(r'^customers$',         'customers', name='customers'),
     url(r'^enter-request$',     'enter_request'),
     url(r'^create-request$',    'create_request'),
     url(r'^show-warrantor$',    'show_warrantor'),
@@ -18,6 +17,7 @@ urlpatterns = patterns('webapp.frontend.views',
 
     url(r'^edit-request$',      'edit_request'),
     url(r'^update-request$',    'update_request'),
+    url(r'^status',             'offer_status'),
 
     # url(r'^creditapprovalwebapp/', include('creditapprovalwebapp.foo.urls')),
 
