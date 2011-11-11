@@ -1,5 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 from webapp.backend import creditapprovalclient, ratingclient
 from webapp.frontend import sessionstore
@@ -100,10 +102,26 @@ def accept_offer(request):
 
     creditapprovalclient.acceptOffer(offer)
 
-    return render_to_response('offer-accepted.html', {
+    sessionstore.set_offer(request, offer)
+
+    return HttpResponseRedirect(reverse(offer_status))
+
+
+
+def offer_status(request):
+
+    offer = sessionstore.get_offer(request)
+
+    is_signed = creditapprovalclient.contractSigned(offer)
+
+    return render_to_response('offer-status.html', {
             'id': offer._offer_id,
             'offer': offer,
+            'is_signed': is_signed,
         }, context_instance=RequestContext(request))
+
+
+
 
 
 def decline_offer(request):

@@ -18,6 +18,7 @@ urlpatterns = patterns('webapp.frontend.views',
 
     url(r'^edit-request$',      'edit_request'),
     url(r'^update-request$',    'update_request'),
+    url(r'^status',             'offer_status'),
 
     # url(r'^creditapprovalwebapp/', include('creditapprovalwebapp.foo.urls')),
 
