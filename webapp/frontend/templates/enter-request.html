@@ -8,6 +8,15 @@
 
  <table>
   <tr>
+   <th>Customer</th>
+   <td>
+     {{ customer.first_name }}
+     {{ customer.middle_name }}
+     {{ customer.last_name }}
+   </td>
+   <td>{{ customer.rating }}</td>
+  </tr>
+  <tr>
    <th>Reason</th>
    <td><input type="text" name="reason" value="{{ credit_request.reason }}"></td>
   </tr>
@@ -23,6 +32,21 @@
    <th>Duration</th>
    <td><input type="text" name="duration" value="{{ credit_request.duration.years }}"/> Years</td>
   </tr>
+
+  {% for warrantor in credit_request.warrantors %}
+   <tr>
+    <th>Warrantor</th>
+    <td>
+      {{ warrantor.first_name }}
+      {{ warrantor.middle_name }}
+      {{ warrantor.last_name }}
+    </td>
+    <td>
+      {{ warrantor.rating }}
+    </td>
+   </tr>
+  {% endfor %}
+
   <tr>
    <td colspan="2">
     <input type="submit" value="Continue" />

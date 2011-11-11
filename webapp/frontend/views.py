@@ -32,7 +32,13 @@ def customers(request):
 
 
 def enter_request(request):
+
+    customer = sessionstore.get_customer(request)
+    customer = ratingclient.setRating(customer)
+    sessionstore.set_customer(request, customer)
+
     return render_to_response('enter-request.html', {
+            'customer': customer,
             'target': 'create-request',
         }, context_instance=RequestContext(request))
 
@@ -60,7 +66,9 @@ def show_warrantor(request):
 
     warrantor = creditapprovalclient.getCustomerByName(name)
     if warrantor:
+        warrantor = ratingclient.setRating(warrantor)
         credit_req.warrantors.append(warrantor)
+
     sessionstore.set_request(request, credit_req)
 
     return render_to_response('search-warrantors.html', {
@@ -71,10 +79,6 @@ def show_warrantor(request):
 def submit_request(request):
 
     credit_req = sessionstore.get_request(request)
-
-    customer = credit_req.customer
-    credit_req.customer = ratingclient.setRating(customer)
-    credit_req.warrantors = map(ratingclient.setRating, credit_req.warrantors)
 
     offer = creditapprovalclient.placeCreditRequest(credit_req)
 
@@ -124,6 +128,7 @@ def edit_request(request):
     credit_req = offer.request
 
     return render_to_response('enter-request.html', {
+            'customer': offer.request.customer,
             'credit_request': credit_req,
             'target': 'update-request',
         }, context_instance=RequestContext(request))

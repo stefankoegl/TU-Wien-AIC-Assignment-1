@@ -7,6 +7,15 @@
  {% csrf_token %}
  <table>
   <tr>
+   <th>Customer</th>
+   <td>
+     {{ credit_request.customer.first_name }}
+     {{ credit_request.customer.middle_name }}
+     {{ credit_request.customer.last_name }}
+   </td>
+   <td>{{ credit_request.customer.rating }}</td>
+  </tr>
+  <tr>
    <th>Reason</th>
    <td>{{ credit_request.reason }}</td>
   </tr>
@@ -33,6 +42,9 @@
       {{ warrantor.first_name }}
       {{ warrantor.middle_name }}
       {{ warrantor.last_name }}
+    </td>
+    <td>
+      {{ warrantor.rating }}
     </td>
    </tr>
   {% endfor %}
