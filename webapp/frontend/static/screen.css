@@ -1,0 +1,54 @@
+body
+{
+    background-color: #E8DDCB;
+    color: #031634;
+    margin: 0;
+    font-family: 'Chivo', sans-serif;
+}
+
+a
+{
+    color: #031634;
+    font-weight: bold;
+}
+
+h1,
+h1 a
+{
+    margin: 0;
+    padding: .3em 0 .3em .3em;
+    font-family: 'Chivo', sans-serif;
+    background-color: #033649;
+    color: white;
+    text-decoration: none;
+}
+
+div#content
+{
+    padding: .5em 0 0 2em;
+
+}
+
+input[type="text"]
+{
+    /* background-color: #;*/
+}
+
+table
+{
+    padding-bottom: .5em;
+}
+
+th
+{
+    text-align: right;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+th[colspan="2"]
+{
+    text-align: center;
+    padding-top: 1em;
+    font-size: 1.2em;
+}

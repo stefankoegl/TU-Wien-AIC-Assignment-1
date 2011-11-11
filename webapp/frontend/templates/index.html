@@ -3,9 +3,18 @@
 {% block content %}
 <h2>Select Customer</h2>
 
-<form method="post" action="/customers">
+<form method="post" action="/enter-request">
  {% csrf_token %}
- Name: <input type="text" name="name">
- <input type="submit" value="Search" />
+ <table>
+  <tr>
+   <th>Customer</th>
+   <td><input type="text" name="name" /></td>
+  </tr>
+
+  <tr>
+   <td colspan="2">
+    <input type="submit" value="Search" />
+   </td>
+  </tr>
 </form>
 {% endblock %}

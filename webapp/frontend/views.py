@@ -20,22 +20,10 @@ def index(request):
         }, context_instance=RequestContext(request))
 
 
-def customers(request):
-    name = request.POST['name']
-
-    customer = creditapprovalclient.getCustomerByName(name)
-
-    sessionstore.set_customer(request, customer)
-
-    return render_to_response('customers.html', {
-            'name': name,
-            'customer': customer,
-        }, context_instance=RequestContext(request))
-
-
 def enter_request(request):
 
-    customer = sessionstore.get_customer(request)
+    name = request.POST['name']
+    customer = creditapprovalclient.getCustomerByName(name)
     customer = ratingclient.setRating(customer)
     sessionstore.set_customer(request, customer)
 
