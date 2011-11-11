@@ -101,5 +101,11 @@ public class Offer {
 		return false;
 	    return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Offer {offerId: " + offerId + ", comments: " + comments +
+				", " + interestRate + ", " + request + "}";
+	}
 
 }

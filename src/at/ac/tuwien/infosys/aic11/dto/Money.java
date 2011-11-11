@@ -68,4 +68,9 @@ public class Money {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Money " + amount + " " + currencyCode;
+	}
 }

@@ -43,4 +43,9 @@ public class Duration {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Duration: " + years + " years";
+	}
 }

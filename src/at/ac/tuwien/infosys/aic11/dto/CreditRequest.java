@@ -152,4 +152,10 @@ public class CreditRequest {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "CreditRequest{requestId: " + requestId + ", reason: " + reason +
+				", customer: " + customer + ", " + duration + ", " + amount + "}";
+	}
 }

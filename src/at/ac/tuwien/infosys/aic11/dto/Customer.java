@@ -214,4 +214,9 @@ public class Customer {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return firstName + " " + middleName + " " + lastName;
+	}
 }

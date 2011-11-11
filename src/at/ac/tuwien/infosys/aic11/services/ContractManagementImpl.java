@@ -12,6 +12,10 @@ import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
+
+	public ContractManagementImpl() {
+		super();
+	}
 	
 	@Override
 	public void acceptOffer(Offer offer) {
@@ -20,7 +24,10 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			legacyContractManagement.acceptOffer(offer);
 		} catch (LegacyException e) {
-			System.err.println(e.getMessage());
+			logExceptionCatch("acceptOffer(Offer)", e);
+			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			logExceptionThrow("acceptOffer(Offer)", fault);
+			throw fault;
 		}
 		
 		exiting("acceptOffer");
@@ -34,7 +41,9 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			legacyContractManagement.deleteOffer(offer);
 		} catch (LegacyException e) {
+			logExceptionCatch("declineOffer(Offer)", e);
 			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			logExceptionThrow("declineOffer(Offer)", fault);
 			throw fault;
 		}
 		
@@ -51,11 +60,13 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			offer = legacyContractManagement.createCreditRequest(creditRequest);
 		} catch (LegacyException e) {
+			logExceptionCatch("placeCreditRequest(CreditRequest)", e);
 			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			logExceptionThrow("placeCreditRequest(CreditRequest)", fault);
 			throw fault;
 		}
 		
-		exiting("placeCreditRequest");
+		exiting("placeCreditRequest", offer);
 		return offer;
 	}
 
@@ -67,11 +78,13 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 		try {
 			offer = legacyContractManagement.updateCreditRequest(creditRequest);
 		} catch (LegacyException e) {
+			logExceptionCatch("updateCreditRequest(CreditRequest)", e);
 			SoapFault fault = new SoapFault(e.getMessage(), new QName("LegacyException"));
+			logExceptionThrow("updateCreditRequest(CreditRequest)", fault);
 			throw fault;
 		}
 
-		exiting("updateCreditRequest");
+		exiting("updateCreditRequest", offer);
 		return offer;
 	}
 }

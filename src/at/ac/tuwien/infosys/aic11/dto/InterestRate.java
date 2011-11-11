@@ -46,4 +46,9 @@ public class InterestRate {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "Interest Rate " + rate;
+	}
 }

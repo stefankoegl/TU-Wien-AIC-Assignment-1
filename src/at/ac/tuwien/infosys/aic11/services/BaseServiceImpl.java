@@ -10,32 +10,37 @@ public class BaseServiceImpl
 	protected BaseServiceImpl()
 	{
 		logger = Logger.getLogger(this.getClass().getName());
+		logger.setLevel(Level.INFO);
 	}
 	
 	protected void entering(String method, Object[] params)
 	{
-		/* FIXME: we should as INFO */ 
-        if (logger.isLoggable(Level.FINER)) 
+        if (logger.isLoggable(Level.INFO)) 
         {
-            logger.entering(this.getClass().getName(), method, params);
+            //logger.entering(this.getClass().getName(), method, params);
+        	String msg = "Entering Method " + method + " Params: ";
+        	for (Object obj : params) {
+        		msg += obj.toString() + "; ";
+        	}
+        	logger.info(msg);
         }
 	}
 	
 	protected void exiting(String method, Object result)
 	{
-		/* FIXME: we should as INFO */
-        if (logger.isLoggable(Level.FINER)) 
+        if (logger.isLoggable(Level.INFO)) 
         {
-            logger.exiting(this.getClass().getName(), method, result);
+            //logger.exiting(this.getClass().getName(), method, result);
+        	logger.info("Exiting Method " + method + " Result: " + result.toString());
         }
 	}
 	
 	protected void exiting(String method)
 	{
-		/* FIXME: we should as INFO */
-        if (logger.isLoggable(Level.FINER)) 
+        if (logger.isLoggable(Level.INFO)) 
         {
-            logger.exiting(this.getClass().getName(), method);
+            //logger.exiting(this.getClass().getName(), method);
+        	logger.info("Exiting Method " + method);
         }
 	}	
 	
