@@ -5,6 +5,56 @@
 
  <table>
   <tr>
+   <th colspan="2">Request</th>
+  </tr>
+  <tr>
+   <th>Customer</th>
+   <td>
+     {{ offer.request.customer.first_name }}
+     {{ offer.request.customer.middle_name }}
+     {{ offer.request.customer.last_name }}
+   </td>
+   <td>{{ offer.request.customer.rating }}</td>
+  </tr>
+  <tr>
+   <th>Reason</th>
+   <td>{{ offer.request.reason }}</td>
+  </tr>
+
+  <tr>
+   <th>Amount</th>
+   <td>{{ offer.request.amount.amount }}</td>
+  </tr>
+
+  <tr>
+   <th>Currency</th>
+   <td>{{ offer.request.amount.currency_code }}</td>
+  </tr>
+
+  <tr>
+   <th>Duration</th>
+   <td>{{ offer.request.duration.years}} Years</td>
+  </tr>
+
+  {% for warrantor in offer.request.warrantors %}
+   <tr>
+    <th>Warrantor</th>
+    <td>
+      {{ warrantor.first_name }}
+      {{ warrantor.middle_name }}
+      {{ warrantor.last_name }}
+    </td>
+    <td>
+      {{ warrantor.rating }}
+    </td>
+   </tr>
+  {% endfor %}
+
+  <tr>
+   <th colspan="2">Offer</th>
+  </tr>
+
+  <tr>
    <th>Id</th>
    <td>{{ id }}</td>
   </tr>

@@ -1,3 +1,5 @@
+import threading
+
 from suds.client import Client
 from suds.wsse import Security
 from suds.wsse import UsernameToken
@@ -29,13 +31,22 @@ def updateCreditRequest(request):
     return contract_client.service.updateCreditRequest(request)
 
 def acceptOffer(offer):
-    #TODO: also call shipping
-    #TODO: do things in parallel
     request = offer.request
-    disbursement_resp = disbursementclient.startDisbursement(request.amount, request.customer)
-    contract_client.service.acceptOffer(offer)
-    shipContract(offer)
-    return disbursement_resp
+
+    threads = [
+            threading.Thread(target=disbursementclient.startDisbursement,
+                args=(request.amount, request.customer)),
+            threading.Thread(target=contract_client.service.acceptOffer,
+                args=(offer,)),
+            threading.Thread(target=shipContract, args=(offer,))
+        ]
+
+    for thread in threads:
+        thread.start()
+
+    for thread in threads:
+        thread.join()
+
 
 def declineOffer(offer):
     return contract_client.service.declineOffer(offer)

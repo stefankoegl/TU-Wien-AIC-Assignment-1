@@ -77,6 +77,7 @@ def submit_request(request):
     return render_to_response('offer.html', {
             'id': offer._offer_id,
             'offer': offer,
+            'credit_request': credit_req,
         }, context_instance=RequestContext(request))
 
 
