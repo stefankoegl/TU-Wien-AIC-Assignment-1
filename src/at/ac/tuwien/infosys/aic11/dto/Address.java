@@ -30,7 +30,7 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 	
-	@XmlAttribute(name="id")
+	@XmlAttribute(name="id", required=true)
 	public String getId() {
 		return id;
 	}
@@ -62,7 +62,7 @@ public class Address {
 		this.door = door;
 	}
 	
-	@XmlElement(name="zip_code")
+	@XmlElement(name="zip_code", required=true)
 	public String getZipCode() {
 		return zipCode;
 	}

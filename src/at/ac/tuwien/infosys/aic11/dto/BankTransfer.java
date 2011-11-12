@@ -22,7 +22,7 @@ public class BankTransfer extends DisbursementPreference {
 		this.iban = iban;
 	}
 	
-	@XmlElement(name="bank_name")
+	@XmlElement(name="bank_name", required=true)
 	public String getBankName() {
 		return bankName;
 	}

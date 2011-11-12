@@ -36,7 +36,7 @@ public class CreditRequest {
 	}
 
 
-	@XmlAttribute(name="request_id")
+	@XmlAttribute(name="request_id", required=true)
 	public long getRequestId() {
 		return requestId;
 	}

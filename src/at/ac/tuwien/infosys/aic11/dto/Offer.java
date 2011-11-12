@@ -23,7 +23,7 @@ public class Offer {
 		this.request = request;
 	}
 
-	@XmlAttribute(name="offer_id")
+	@XmlAttribute(name="offer_id", required=true)
 	public long getOfferId() {
 		return offerId;
 	}
@@ -44,7 +44,7 @@ public class Offer {
 	}
 
 
-	@XmlElement(name="interest_rate")
+	@XmlElement(name="interest_rate", required=true)
 	public InterestRate getInterestRate() {
 		return interestRate;
 	}

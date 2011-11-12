@@ -18,7 +18,7 @@ public class Money {
 		this.amount = amount;
 	}
 
-	@XmlElement(name="currency_code")
+	@XmlElement(name="currency_code", required=true)
 	public String getCurrencyCode() {
 		return currencyCode;
 	}

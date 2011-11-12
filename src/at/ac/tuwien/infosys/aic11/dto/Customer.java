@@ -39,7 +39,7 @@ public class Customer {
 		this.creditRequests = new Vector<CreditRequest>();
 	}
 
-	@XmlAttribute(name="customer_id")
+	@XmlAttribute(name="customer_id", required=true)
 	public long getCustomerId() {
 		return customerId;
 	}
@@ -50,7 +50,7 @@ public class Customer {
 	}
 
 
-	@XmlElement(name="first_name")
+	@XmlElement(name="first_name", required=true)
 	public String getFirstName() {
 		return firstName;
 	}
@@ -71,7 +71,7 @@ public class Customer {
 		this.middleName = middleName;
 	}
 
-	@XmlElement(name="last_name")
+	@XmlElement(name="last_name", required=true)
 	public String getLastName() {
 		return lastName;
 	}
@@ -82,7 +82,7 @@ public class Customer {
 	}
 
 
-	@XmlElement(name="open_balance")
+	@XmlElement(name="open_balance", required=true)
 	public BigDecimal getOpenBalance() {
 		return openBalance;
 	}
@@ -103,7 +103,7 @@ public class Customer {
 	}
 
 
-	@XmlElement(name="disbursement_preference")
+	@XmlElement(name="disbursement_preference", required=true)
 	public DisbursementPreference getDisbursementPreference() {
 		return disbursementPreference;
 	}
@@ -114,7 +114,7 @@ public class Customer {
 		this.disbursementPreference = disbursementPreference;
 	}
 
-	@XmlElement(name="rating", nillable = true)
+	@XmlElement(name="rating", nillable = true, required=true)
 	public Ratings getRating() {
 		return rating;
 	}
