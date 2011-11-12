@@ -35,7 +35,7 @@ public class LegacyShipping {
     	
     	private LegacyShipping() {
     	    Timer faxTimer = new Timer();
-    	    faxTimer.schedule(new ReceiveFaxTask(), 0, 3500);
+    	    faxTimer.schedule(new ReceiveFaxTask(), 0, 35000);
     	}
     
 	/* Key: requestId, value: true if fax reply has already been received */
