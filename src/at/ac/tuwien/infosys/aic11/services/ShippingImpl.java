@@ -2,6 +2,7 @@ package at.ac.tuwien.infosys.aic11.services;
 
 
 
+import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
 import org.apache.cxf.binding.soap.SoapFault;
@@ -10,6 +11,9 @@ import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyShipping;
 
+@WebService(endpointInterface="at.ac.tuwien.infosys.aic11.services.Shipping",
+targetNamespace="at.ac.tuwien.infosys.aic11.services"
+)
 public class ShippingImpl extends BaseServiceImpl implements Shipping {
 
 	private LegacyShipping legacyShipping = LegacyShipping.instance();

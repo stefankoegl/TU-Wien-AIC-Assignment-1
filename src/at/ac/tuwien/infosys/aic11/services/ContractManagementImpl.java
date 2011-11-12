@@ -1,5 +1,6 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
 import org.apache.cxf.binding.soap.SoapFault;
@@ -9,6 +10,9 @@ import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyContractManagement;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 
+@WebService(endpointInterface="at.ac.tuwien.infosys.aic11.services.ContractManagement",
+targetNamespace="at.ac.tuwien.infosys.aic11.services"
+)
 public class ContractManagementImpl extends BaseServiceImpl implements ContractManagement {
 
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();

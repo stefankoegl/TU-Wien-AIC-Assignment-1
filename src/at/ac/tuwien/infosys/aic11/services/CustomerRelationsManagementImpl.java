@@ -1,5 +1,6 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
 import org.apache.cxf.binding.soap.SoapFault;
@@ -8,6 +9,9 @@ import at.ac.tuwien.infosys.aic11.dto.Customer;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyCustomerRelationsManagement;
 import at.ac.tuwien.infosys.aic11.legacy.LegacyException;
 
+@WebService(endpointInterface="at.ac.tuwien.infosys.aic11.services.CustomerRelationsManagement",
+targetNamespace="at.ac.tuwien.infosys.aic11.services"
+)
 public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 		CustomerRelationsManagement {
 
