@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.contrib import messages
 
 from webapp.backend import creditapprovalclient, ratingclient
 from webapp.frontend import sessionstore
@@ -23,9 +24,15 @@ def index(request):
 def enter_request(request):
 
     name = request.POST['name']
-    customer = creditapprovalclient.getCustomerByName(name)
-    customer = ratingclient.setRating(customer)
-    sessionstore.set_customer(request, customer)
+
+    try:
+        customer = creditapprovalclient.getCustomerByName(name)
+        customer = ratingclient.setRating(customer)
+        sessionstore.set_customer(request, customer)
+
+    except Exception as e:
+        messages.error(request, e)
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
     return render_to_response('enter-request.html', {
             'customer': customer,
@@ -54,7 +61,13 @@ def show_warrantor(request):
 
     credit_req = sessionstore.get_request(request)
 
-    warrantor = creditapprovalclient.getCustomerByName(name)
+    try:
+        warrantor = creditapprovalclient.getCustomerByName(name)
+    except:
+        messages.error(request, 'Customer with name "{name}" not found'.format(
+            name=name))
+        warrantor = None
+
     if warrantor:
         warrantor = ratingclient.setRating(warrantor)
         credit_req.warrantors.append(warrantor)

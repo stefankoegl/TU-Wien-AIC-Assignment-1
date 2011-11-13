@@ -52,3 +52,15 @@ th[colspan="2"]
     padding-top: 1em;
     font-size: 1.2em;
 }
+
+
+
+div.error
+{
+    margin-top: 3em;
+    border: thin solid #8B3130;
+    background-color: #B97F82;
+width: 30%;
+    padding: .5em;
+    color: #523B51;
+}

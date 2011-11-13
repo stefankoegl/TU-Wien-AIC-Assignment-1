@@ -45,6 +45,13 @@ public class LegacyCustomerRelationsManagement {
 	public Customer getCustomerByName(String name)
 	throws LegacyException
 	{
+		name = name.trim();
+		
+		if(name.isEmpty())
+		{
+			throw new LegacyException("Can't search for Customer without name (getCustomerByName)");
+		}
+		
 		for(Customer customer : customers.values())
 		{
 			String fullname = customer.getFirstName() + " " + customer.getMiddleName() + " " + customer.getLastName();
