@@ -2,6 +2,9 @@ package at.ac.tuwien.infosys.aic11.services;
 
 
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
@@ -18,6 +21,13 @@ public class ShippingImpl extends BaseServiceImpl implements Shipping {
 
 	private LegacyShipping legacyShipping = LegacyShipping.instance();
 
+	public ShippingImpl() {
+	    logger = Logger.getLogger("ShippingImpl");
+	    Logger parent = Logger.getLogger(" at.ac.tuwien.infosys.aic11.services.");
+	    logger.setParent(parent);
+	    logger.setLevel(Level.INFO);
+	}
+	
 	@Override
 	public void sendContractFax(Offer offer) {
 		entering("sendContractFax", new Object[]{offer});

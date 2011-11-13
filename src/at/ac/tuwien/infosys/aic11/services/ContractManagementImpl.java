@@ -1,5 +1,8 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
@@ -18,7 +21,10 @@ public class ContractManagementImpl extends BaseServiceImpl implements ContractM
 	private LegacyContractManagement legacyContractManagement = LegacyContractManagement.instance();
 
 	public ContractManagementImpl() {
-		super();
+	    logger = Logger.getLogger("ContractManagementImpl");
+	    Logger parent = Logger.getLogger(" at.ac.tuwien.infosys.aic11.services.");
+	    logger.setParent(parent);
+	    logger.setLevel(Level.INFO);
 	}
 	
 	@Override

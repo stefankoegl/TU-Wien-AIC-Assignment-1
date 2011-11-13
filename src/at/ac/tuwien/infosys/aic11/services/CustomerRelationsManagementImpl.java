@@ -1,5 +1,8 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.jws.WebService;
 import javax.xml.namespace.QName;
 
@@ -18,7 +21,10 @@ public class CustomerRelationsManagementImpl extends BaseServiceImpl implements
 	private LegacyCustomerRelationsManagement legacyCustomerRelationsManagement = LegacyCustomerRelationsManagement.instance();
 	
 	public CustomerRelationsManagementImpl() {
-		super();
+	    logger = Logger.getLogger("CustomerRelationsManagementImpl");
+	    Logger parent = Logger.getLogger(" at.ac.tuwien.infosys.aic11.services.");
+	    logger.setParent(parent);
+	    logger.setLevel(Level.INFO);
 	}
 	
 	@Override

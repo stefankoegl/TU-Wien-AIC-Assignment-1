@@ -1,5 +1,8 @@
 package at.ac.tuwien.infosys.aic11.services;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
@@ -13,6 +16,13 @@ public class RatingImpl extends BaseServiceImpl implements Rating
 {
     LegacyCustomerRelationsManagement backend = LegacyCustomerRelationsManagement.instance();
 	
+    public RatingImpl() {
+	logger = Logger.getLogger("RatingImpl");
+	Logger parent = Logger.getLogger(" at.ac.tuwien.infosys.aic11.services.");
+	logger.setParent(parent);
+	logger.setLevel(Level.INFO);
+    }
+    
 	public Ratings getRating(long customerId) 
 	{
 		entering("getRating", new Object[]{customerId});

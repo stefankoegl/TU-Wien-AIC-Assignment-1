@@ -9,8 +9,7 @@ public class BaseServiceImpl
 	
 	protected BaseServiceImpl()
 	{
-		logger = Logger.getLogger(this.getClass().getName());
-		logger.setLevel(Level.INFO);
+		
 	}
 	
 	protected void entering(String method, Object[] params)
