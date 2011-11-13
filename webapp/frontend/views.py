@@ -169,6 +169,9 @@ def update_request(request):
 
     offer = creditapprovalclient.placeCreditRequest(credit_req)
 
+    if not getattr(offer, 'warrantors', False):
+        offer.request.warrantors = []
+
     sessionstore.set_offer(request, offer)
 
     return render_to_response('offer.html', {
