@@ -1,0 +1,18 @@
+
+     Advanced Internet Computing - Lab1
+  ========================================
+
+This is the submission for AIC Lab 1 by
+
+  Stefan Derkits <stefan@derkits.at>  0725081
+  Stefan Kögl    <stefan@skoegl.net>  0725134
+  Felix Winter   <ixos01@gmail.com>   0825516
+
+
+To run the server, execute
+
+  ant Server
+
+
+Instruction for the web-based client can be found in webapp/README.
+
